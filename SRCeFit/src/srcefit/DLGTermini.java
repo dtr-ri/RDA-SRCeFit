@@ -236,7 +236,7 @@ public class DLGTermini extends JDialog {
 					Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 					Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
 					
-					String sql = "INSERT INTO UBP_proj_Termin VALUES(?,?,?,?);";
+					String sql = "INSERT INTO RDA_proj_Termin VALUES(?,?,?,?);";
 					PreparedStatement stmt = conn.prepareStatement(sql);
 					stmt.setString(1, redniBroj);
 					stmt.setString(2, datum);

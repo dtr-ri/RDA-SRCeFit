@@ -269,7 +269,7 @@ public class DLGUnosAktivnost extends JDialog {
 								  Connection conn = DriverManager.getConnection 
 										  ("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
 								 
-								  String sql = "INSERT INTO UBP_proj_Aktivnost VALUES(?,?,?,?,?,?,?);";
+								  String sql = "INSERT INTO RDA_proj_Aktivnost VALUES(?,?,?,?,?,?,?);";
 								  PreparedStatement stmt = conn.prepareStatement(sql);
 								  stmt.setString(1,sifrasport);
 								  stmt.setString(2, sport);

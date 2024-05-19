@@ -139,7 +139,7 @@ public class DLGUnosClanova extends JDialog {
 							 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 								  Connection conn = DriverManager.getConnection ("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
 								  //id, ime, prez, adr, mob, email, datum
-								  String sql = "INSERT INTO UBP_proj_Trener VALUES(NULL,?,?,?,?,?,?);";
+								  String sql = "INSERT INTO RDA_proj_Trener VALUES(NULL,?,?,?,?,?,?);";
 								  PreparedStatement stmt = conn.prepareStatement(sql);
 								  stmt.setString(1, Novi_clan_Ime);
 								  stmt.setString(2, Novi_clan_Prezime);
