@@ -138,7 +138,7 @@ public class DLGUnosTrener extends JDialog {
 							try {						
 							 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 								  Connection conn = DriverManager.getConnection ("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
-								  //id, ime, prez, adr, mob, email, datum. sport
+								  //id, ime, prez, adr, mob, email, datum, sport
 								  String sql = "INSERT INTO RDA_proj_Trener VALUES(NULL,?,?,?,?,?,?,?);";
 								  PreparedStatement stmt = conn.prepareStatement(sql);
 								  stmt.setString(1, Novi_trener_Ime);

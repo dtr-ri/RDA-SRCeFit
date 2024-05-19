@@ -125,6 +125,7 @@ public class DLGUnosClanova extends JDialog {
 			{
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
+					@SuppressWarnings("deprecation")
 					public void actionPerformed(ActionEvent e) {
 						String Novi_clan_Ime = textField_ime.getText();
 						String Novi_clan_Prezime = textField_prezime.getText();
@@ -137,9 +138,10 @@ public class DLGUnosClanova extends JDialog {
 
 							try {						
 							 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-								  Connection conn = DriverManager.getConnection ("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
+							 	 Connection conn = DriverManager.getConnection ("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
 								  //id, ime, prez, adr, mob, email, datum
-								  String sql = "INSERT INTO RDA_proj_Trener VALUES(NULL,?,?,?,?,?,?);";
+								  String sql = "INSERT INTO RDA_proj_Korisnik VALUES(NULL,?,?,?,?,?,?);";
+				
 								  PreparedStatement stmt = conn.prepareStatement(sql);
 								  stmt.setString(1, Novi_clan_Ime);
 								  stmt.setString(2, Novi_clan_Prezime);
@@ -166,6 +168,8 @@ public class DLGUnosClanova extends JDialog {
 								*/
 								return;
 							}
+							System.out.println(Novi_clan_Ime + " " + Novi_clan_Prezime + " " + Novi_clan_adresa + " " + Novi_clan_tel + " " + Novi_clan_email + " " + Novi_clan_datum_upisa);
+							
 							
 						}
 						
