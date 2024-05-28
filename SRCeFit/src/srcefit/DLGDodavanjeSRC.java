@@ -85,7 +85,7 @@ public class DLGDodavanjeSRC extends JDialog {
 		comboBoxAktivnosti.setBounds(273, 112, 176, 22);
 		contentPanel.add(comboBoxAktivnosti);
 		
-		JLabel lblNewLabel_3 = new JLabel("Kratak tektualni opis novog SRC-a");
+		JLabel lblNewLabel_3 = new JLabel("Kratak tektualni opis novog SRC-a - max 500 znakova");
 		lblNewLabel_3.setBounds(10, 152, 207, 14);
 		contentPanel.add(lblNewLabel_3);
 		
