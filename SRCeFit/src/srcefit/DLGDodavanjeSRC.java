@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.SystemColor;
 
 public class DLGDodavanjeSRC extends JDialog {
 
@@ -45,6 +46,7 @@ public class DLGDodavanjeSRC extends JDialog {
 	 * Create the dialog.
 	 */
 	public DLGDodavanjeSRC() {
+		setBackground(new Color(255, 255, 255));
 		
 		/*
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Korisnik\\Downloads\\srcefit3.png"));
@@ -95,6 +97,7 @@ public class DLGDodavanjeSRC extends JDialog {
 		textFieldOpisSRC.setColumns(10);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(SystemColor.menu);
 		menuBar.setBounds(0, 0, 595, 22);
 		contentPanel.add(menuBar);
 		
