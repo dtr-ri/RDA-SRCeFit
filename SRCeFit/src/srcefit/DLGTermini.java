@@ -71,7 +71,7 @@ public class DLGTermini extends JDialog {
 		contentPanel.add(lblDatum);
 		
 		textFieldDatum = new JTextField();
-		textFieldDatum.setBounds(96, 85, 96, 19);
+		textFieldDatum.setBounds(96, 85, 90, 19);
 		contentPanel.add(textFieldDatum);
 		textFieldDatum.setColumns(10);
 		
