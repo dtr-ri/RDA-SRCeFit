@@ -193,4 +193,4 @@ public class DLGUnosTrener extends JDialog {
 		}
 	}
 }
-/* dodano samo za probu pusha na faxu*/
+/* dodano samo za probu pusha na faxu */
