@@ -46,7 +46,7 @@ public class DLGUnosTrener extends JDialog {
 	 * Create the dialog.
 	 */
 	public DLGUnosTrener() {
-		setBounds(100, 100, 350, 322);
+		setBounds(100, 100, 350, 321);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
