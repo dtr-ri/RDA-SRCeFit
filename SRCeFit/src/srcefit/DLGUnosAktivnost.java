@@ -70,7 +70,7 @@ public class DLGUnosAktivnost extends JDialog {
 		textFieldSifraNoviSport.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Novi sport");
-		lblNewLabel.setBounds(10, 61, 64, 14);
+		lblNewLabel.setBounds(10, 60, 64, 14);
 		contentPanel.add(lblNewLabel);
 		
 		textFieldNoviSport = new JTextField();
