@@ -2,6 +2,7 @@ package srcefit;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.SystemColor;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -123,14 +124,30 @@ public class DLGUnosAktivnost extends JDialog {
 		contentPanel.add(textFieldNajveciBrojKorisnika);
 		textFieldNajveciBrojKorisnika.setColumns(10);
 		
+		setBounds(100, 100, 450, 300);
+		setBackground(new Color(255, 255, 255));
+		
+		setTitle("SRCeFIT");
+		setBounds(100, 100, 611, 398);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(240, 255, 240));
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		
+		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 537, 22);
+		menuBar.setBackground(SystemColor.menu);
+		menuBar.setBounds(0, 0, 595, 22);
 		contentPanel.add(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Kontrola");
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Odjava");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();}});
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenu mnNewMenu_1 = new JMenu("SRCeFIT");
@@ -143,10 +160,7 @@ public class DLGUnosAktivnost extends JDialog {
 		mntmNewMenuItem_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DLGDodavanjeSRC dlg = new DLGDodavanjeSRC();
-				dlg.setVisible(true);
-			
-			}
-		});
+				dlg.setVisible(true);}});
 		mnNewMenu_6.add(mntmNewMenuItem_6);
 		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Mijenjaj postojeci SRC");
@@ -159,6 +173,10 @@ public class DLGUnosAktivnost extends JDialog {
 		mnNewMenu_1.add(mnNewMenu_7);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Dodaj novu aktivnost/sport");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGUnosAktivnost dlg = new DLGUnosAktivnost();
+				dlg.setVisible(true);}});
 		mnNewMenu_7.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Mijenjaj aktivnost/sport");
@@ -171,6 +189,10 @@ public class DLGUnosAktivnost extends JDialog {
 		mnNewMenu_1.add(mnNewMenu_8);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Dodaj trenera");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGUnosTrener dlg = new DLGUnosTrener();
+				dlg.setVisible(true);}});
 		mnNewMenu_8.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Mijenjaj trenera");
@@ -180,9 +202,13 @@ public class DLGUnosAktivnost extends JDialog {
 		mnNewMenu_8.add(mntmNewMenuItem_12);
 		
 		JMenu mnNewMenu_9 = new JMenu("Termin");
-		mnNewMenu_1.add(mnNewMenu_9);
+				mnNewMenu_1.add(mnNewMenu_9);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Dodaj termin");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGTermini dlg = new DLGTermini();
+				dlg.setVisible(true);}});
 		mnNewMenu_9.add(mntmNewMenuItem_3);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Mijenjaj termin");
@@ -191,25 +217,29 @@ public class DLGUnosAktivnost extends JDialog {
 		JMenuItem mntmNewMenuItem_13 = new JMenuItem("Obrisi termin");
 		mnNewMenu_9.add(mntmNewMenuItem_13);
 		
-		JMenu mnNewMenu_2 = new JMenu("Clanovi");
+		JMenu mnNewMenu_2 = new JMenu("Korisnici");
 		menuBar.add(mnNewMenu_2);
 		
 		JMenu mnNewMenu_10 = new JMenu("Clanarine");
 		mnNewMenu_2.add(mnNewMenu_10);
 		
-		JMenuItem mntmNewMenuItem_14 = new JMenuItem("Dodaj novu slanarinu");
+		JMenuItem mntmNewMenuItem_14 = new JMenuItem("Dodaj novu clanarinu");
 		mnNewMenu_10.add(mntmNewMenuItem_14);
 		
-		JMenuItem mntmNewMenuItem_15 = new JMenuItem("Mijenjaj \slanarinu");
+		JMenuItem mntmNewMenuItem_15 = new JMenuItem("Mijenjaj clanarinu");
 		mnNewMenu_10.add(mntmNewMenuItem_15);
 		
-		JMenuItem mntmNewMenuItem_16 = new JMenuItem("Obrisi slanarinu");
+		JMenuItem mntmNewMenuItem_16 = new JMenuItem("Obrisi clanarinu");
 		mnNewMenu_10.add(mntmNewMenuItem_16);
 		
 		JMenu mnNewMenu_11 = new JMenu("Clanovi");
 		mnNewMenu_2.add(mnNewMenu_11);
 		
 		JMenuItem mntmNewMenuItem_17 = new JMenuItem("Dodaj novog clana");
+		mntmNewMenuItem_17.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGUnosClanova dlg = new DLGUnosClanova();
+				dlg.setVisible(true);}});
 		mnNewMenu_11.add(mntmNewMenuItem_17);
 		
 		JMenuItem mntmNewMenuItem_18 = new JMenuItem("Mijenjaj clana");
