@@ -13,6 +13,7 @@ import java.sql.Statement;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -21,7 +22,6 @@ import javax.swing.JComboBox;
 public class DLG_testUnosAgregacije_KorisnikNaAktivnosti extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	
 	JComboBox comboBoxKorisnik;
 	JComboBox comboBoxAktivnost;
 
@@ -52,7 +52,7 @@ public class DLG_testUnosAgregacije_KorisnikNaAktivnosti extends JDialog {
 		lblKorisnik.setBounds(21, 29, 115, 13);
 		contentPanel.add(lblKorisnik);
 		
-		JComboBox comboBoxKorisnik = new JComboBox();
+		comboBoxKorisnik = new JComboBox();
 		comboBoxKorisnik.setBounds(146, 25, 263, 21);
 		contentPanel.add(comboBoxKorisnik);
 		
@@ -60,7 +60,7 @@ public class DLG_testUnosAgregacije_KorisnikNaAktivnosti extends JDialog {
 		lblAktivnost.setBounds(21, 60, 115, 13);
 		contentPanel.add(lblAktivnost);
 		
-		JComboBox comboBoxAktivnost = new JComboBox();
+		comboBoxAktivnost = new JComboBox();
 		comboBoxAktivnost.setBounds(146, 56, 263, 21);
 		contentPanel.add(comboBoxAktivnost);
 		{
