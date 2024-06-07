@@ -1,6 +1,6 @@
 package srcefit;
 
-public class Aktivnost {
+public class MapiranjeBaze_Aktivnost {
 	int aktivnost_sifra;
 	String aktivnost_naziv;
 	int clanarina_sifra;	

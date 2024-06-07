@@ -1,6 +1,6 @@
 package srcefit;
 
-public class Korisnik {
+public class MapiranjeBaze_Korisnik {
 	int korisnik_clanski_broj;
 	String korisnik_ime;
 	String korisnik_prezime;

@@ -109,7 +109,7 @@ public class DLG_testUnosAgregacije_KorisnikNaAktivnosti extends JDialog {
 				  String korisnik_ime = rs.getString("korisnik_ime");
 				  String korisnik_prezime = rs.getString("korisnik_prezime");
 				  String korisnik_datum_upisa = rs.getString("korisnik_datum_upisa");
-				  Korisnik korisnik = new Korisnik();
+				  MapiranjeBaze_Korisnik korisnik = new MapiranjeBaze_Korisnik();
 				  korisnik.setKorisnik_clanski_broj(korisnik_clanski_broj);
 				  korisnik.setKorisnik_ime(korisnik_ime);
 				  korisnik.setKorisnik_prezime(korisnik_prezime);
@@ -139,7 +139,7 @@ public class DLG_testUnosAgregacije_KorisnikNaAktivnosti extends JDialog {
 				  String teren_namjena = rs.getString("teren_namjena");
 				  int teren_max_kapacitet = rs.getInt("teren_max_kapacitet");	  
 				  
-				  Aktivnost aktivnost = new Aktivnost();
+				  MapiranjeBaze_Aktivnost aktivnost = new MapiranjeBaze_Aktivnost();
 				  aktivnost.setAktivnost_sifra(aktivnost_sifra);
 				  aktivnost.setAktivnost_naziv(aktivnost_naziv);
 				  aktivnost.setTeren_naziv(teren_naziv);
