@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 
-public class DLG_testUnosAgregacije_KorisnikNaAktivnosti extends JDialog {
+public class DLG_AgregacijaUnos_KorisnikNaAktivnosti extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	JComboBox comboBoxKorisnik;
@@ -30,7 +30,7 @@ public class DLG_testUnosAgregacije_KorisnikNaAktivnosti extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			DLG_testUnosAgregacije_KorisnikNaAktivnosti dialog = new DLG_testUnosAgregacije_KorisnikNaAktivnosti();
+			DLG_AgregacijaUnos_KorisnikNaAktivnosti dialog = new DLG_AgregacijaUnos_KorisnikNaAktivnosti();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -41,7 +41,7 @@ public class DLG_testUnosAgregacije_KorisnikNaAktivnosti extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public DLG_testUnosAgregacije_KorisnikNaAktivnosti() {
+	public DLG_AgregacijaUnos_KorisnikNaAktivnosti() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
