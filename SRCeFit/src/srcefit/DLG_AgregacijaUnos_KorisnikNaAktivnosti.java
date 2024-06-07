@@ -115,11 +115,22 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnosti extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
-		dohvatiKorisnike();
-		dohvatiAktivnosti();
+		//dohvatiKorisnike();
+		//dohvatiAktivnosti();
+				
+		//citanje baze izbaceno u posebnu klasu, iste dole metode samo su public ne private, i zagrada je (JComboBox comboBoxKorisnik)
+		CitanjeBaze_Korisnik citanjeBaze_Korisnik = new CitanjeBaze_Korisnik();
+		citanjeBaze_Korisnik.dohvatiKorisnike(comboBoxKorisnik);
+		
+		CitanjeBaze_Aktivnost citanjeBaze_Aktivnost = new CitanjeBaze_Aktivnost();
+		citanjeBaze_Aktivnost.dohvatiAktivnosti(comboBoxAktivnost);
+
 	}
 	
 
+	
+	/*
+	
 	private void dohvatiKorisnike() {
 		try {						
 		 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -150,7 +161,12 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnosti extends JDialog {
 			}	
 	}
 	
+	*/
 	
+	
+	
+	/*
+
 	private void dohvatiAktivnosti() {
 		try {						
 		 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -182,4 +198,9 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnosti extends JDialog {
 			  JOptionPane.showMessageDialog(null, ex.getMessage(),"Greška", JOptionPane.ERROR_MESSAGE);
 			}	
 	}
+	
+	*/
+	
+	
+	
 }
