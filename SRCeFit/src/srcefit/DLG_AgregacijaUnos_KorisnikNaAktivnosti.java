@@ -69,6 +69,37 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnosti extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						MapiranjeBaze_Korisnik korisnik = (MapiranjeBaze_Korisnik) comboBoxKorisnik.getSelectedItem();
+						int idKorisnik_clanski_broj = korisnik.getKorisnik_clanski_broj();
+						MapiranjeBaze_Aktivnost aktivnost = (MapiranjeBaze_Aktivnost) comboBoxAktivnost.getSelectedItem();
+						int idAktivnost_sifra = aktivnost.getAktivnost_sifra();
+						
+						try {						
+						 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+							  Connection conn = DriverManager.getConnection 
+									  ("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
+							 
+							  String sql = "INSERT INTO RDA_proj_KorisnikNaAktivnosti VALUES(?,?);";
+								
+							  PreparedStatement stmt = conn.prepareStatement(sql);
+							  stmt.setInt(1, idKorisnik_clanski_broj);
+							  stmt.setInt(2, idAktivnost_sifra);
+							  stmt.execute();
+											
+							  conn.close();
+
+											
+							} catch(Exception ex) {
+							  JOptionPane.showMessageDialog(null, ex.getMessage(),"Gre�ka", JOptionPane.ERROR_MESSAGE);
+							}
+								
+						
+						System.out.println(idKorisnik_clanski_broj+" "+idAktivnost_sifra);
+					
+					}
+				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
@@ -88,10 +119,7 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnosti extends JDialog {
 		dohvatiAktivnosti();
 	}
 	
-	
 
-	/*dalje zapoceto na vjezbama, try catch iz unosa clanova*/
-	
 	private void dohvatiKorisnike() {
 		try {						
 		 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -121,6 +149,7 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnosti extends JDialog {
 			  JOptionPane.showMessageDialog(null, ex.getMessage(),"Greška", JOptionPane.ERROR_MESSAGE);
 			}	
 	}
+	
 	
 	private void dohvatiAktivnosti() {
 		try {						
