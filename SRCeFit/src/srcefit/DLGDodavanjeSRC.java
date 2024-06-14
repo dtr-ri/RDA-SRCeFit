@@ -49,7 +49,7 @@ public class DLGDodavanjeSRC extends JDialog {
 		setBackground(new Color(255, 255, 255));
 		
 		/*
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Korisnik\\Downloads\\srcefit3.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\Users\Korisnik\Downloads\srcefit.png"));
 		*/
 		
 		setTitle("SRCeFIT");
