@@ -24,6 +24,7 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	JComboBox comboBoxKorisnik;
 	JComboBox comboBoxAktivnost;
+	JComboBox comboBoxTermin;
 	private JTextField textFieldZauzeceBrOsoba;
 	private JTextField textFieldZauzeceDatum;
 
@@ -55,17 +56,45 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu extends JDialog {
 		lblKorisnik.setBounds(21, 29, 115, 13);
 		contentPanel.add(lblKorisnik);
 		
-		comboBoxKorisnik = new JComboBox();
-		comboBoxKorisnik.setBounds(146, 25, 263, 21);
-		contentPanel.add(comboBoxKorisnik);
-		
 		JLabel lblAktivnost = new JLabel("Aktivnost");
 		lblAktivnost.setBounds(21, 60, 115, 13);
 		contentPanel.add(lblAktivnost);
 		
+		JLabel lblTermin = new JLabel("Termin");
+		lblTermin.setBounds(21, 91, 115, 13);
+		contentPanel.add(lblTermin);
+		
+		JLabel lblZauzeceDatum = new JLabel("Datum zauzeća");
+		lblZauzeceDatum.setBounds(21, 121, 115, 13);
+		contentPanel.add(lblZauzeceDatum);
+		
+		JLabel lblZauzeceBrOsoba = new JLabel("Broj osoba");
+		lblZauzeceBrOsoba.setBounds(21, 149, 115, 13);
+		contentPanel.add(lblZauzeceBrOsoba);
+		
+		comboBoxKorisnik = new JComboBox();
+		comboBoxKorisnik.setBounds(146, 25, 263, 21);
+		contentPanel.add(comboBoxKorisnik);
+		
 		comboBoxAktivnost = new JComboBox();
 		comboBoxAktivnost.setBounds(146, 56, 263, 21);
 		contentPanel.add(comboBoxAktivnost);
+		
+		comboBoxTermin = new JComboBox();
+		comboBoxTermin.setBounds(146, 88, 263, 21);
+		contentPanel.add(comboBoxTermin);
+		
+		textFieldZauzeceBrOsoba = new JTextField();
+		textFieldZauzeceBrOsoba.setText("1");
+		textFieldZauzeceBrOsoba.setBounds(146, 145, 80, 20);
+		contentPanel.add(textFieldZauzeceBrOsoba);
+		textFieldZauzeceBrOsoba.setColumns(10);
+		
+		textFieldZauzeceDatum = new JTextField();
+		textFieldZauzeceDatum.setBounds(146, 120, 140, 20);
+		contentPanel.add(textFieldZauzeceDatum);
+		textFieldZauzeceDatum.setColumns(10);
+
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -128,32 +157,9 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu extends JDialog {
 		CitanjeBaze_Aktivnost citanjeBaze_Aktivnost = new CitanjeBaze_Aktivnost();
 		citanjeBaze_Aktivnost.dohvatiAktivnosti(comboBoxAktivnost);
 		
-		JComboBox comboBoxAktivnost_1 = new JComboBox();
-		comboBoxAktivnost_1.setBounds(146, 88, 263, 21);
-		contentPanel.add(comboBoxAktivnost_1);
+
+
 		
-		JLabel lblTermin = new JLabel("Termin");
-		lblTermin.setBounds(21, 91, 115, 13);
-		contentPanel.add(lblTermin);
-		
-		JLabel lblZauzeceDatum = new JLabel("Datum");
-		lblZauzeceDatum.setBounds(21, 121, 115, 13);
-		contentPanel.add(lblZauzeceDatum);
-		
-		JLabel lblZauzeceBrOsoba = new JLabel("Broj osoba");
-		lblZauzeceBrOsoba.setBounds(21, 149, 115, 13);
-		contentPanel.add(lblZauzeceBrOsoba);
-		
-		textFieldZauzeceBrOsoba = new JTextField();
-		textFieldZauzeceBrOsoba.setText("1");
-		textFieldZauzeceBrOsoba.setBounds(146, 145, 80, 20);
-		contentPanel.add(textFieldZauzeceBrOsoba);
-		textFieldZauzeceBrOsoba.setColumns(10);
-		
-		textFieldZauzeceDatum = new JTextField();
-		textFieldZauzeceDatum.setBounds(146, 120, 140, 20);
-		contentPanel.add(textFieldZauzeceDatum);
-		textFieldZauzeceDatum.setColumns(10);
 
 	}
 }
