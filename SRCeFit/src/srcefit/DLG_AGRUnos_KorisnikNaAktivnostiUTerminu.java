@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 
-public class DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu extends JDialog {
+public class DLG_AGRUnos_KorisnikNaAktivnostiUTerminu extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	JComboBox comboBoxKorisnik;
@@ -33,7 +33,7 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu dialog = new DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu();
+			DLG_AGRUnos_KorisnikNaAktivnostiUTerminu dialog = new DLG_AGRUnos_KorisnikNaAktivnostiUTerminu();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -44,7 +44,7 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu() {
+	public DLG_AGRUnos_KorisnikNaAktivnostiUTerminu() {
 		setTitle("KorisnikNaAktivnostiUTerminu");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -107,28 +107,41 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu extends JDialog {
 						int idKorisnik_clanski_broj = korisnik.getKorisnik_clanski_broj();
 						MapiranjeBaze_Aktivnost aktivnost = (MapiranjeBaze_Aktivnost) comboBoxAktivnost.getSelectedItem();
 						int idAktivnost_sifra = aktivnost.getAktivnost_sifra();
-						
-						try {						
-						 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-							  Connection conn = DriverManager.getConnection 
-									  ("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
-							 
-							  String sql = "INSERT INTO RDA_proj_KorisnikNaAktivnosti VALUES(?,?);";
-								
-							  PreparedStatement stmt = conn.prepareStatement(sql);
-							  stmt.setInt(1, idKorisnik_clanski_broj);
-							  stmt.setInt(2, idAktivnost_sifra);
-							  stmt.execute();
-											
-							  conn.close();
+						MapiranjeBaze_Termin termin = (MapiranjeBaze_Termin) comboBoxTermin.getSelectedItem();
+						int idTermin_redni_broj = termin.getTermin_redni_broj();
+						String Zauzece_Br_Osoba = textFieldZauzeceBrOsoba.getText();
+						String Zauzece_Datum = textFieldZauzeceDatum.getText();
 
+						try {						
+						 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+							Connection conn = DriverManager.getConnection 
+									  ("jdbc:mysql://ucka.veleri.hr/dtrbovic?" + "user=dtrbovic&password=11");
+							 
+							String sql = "INSERT INTO RDA_proj_AGR_KorisnikNaAktivnostiUTerminu VALUES(NULL,?,?,?,?,?);";
+								
+							
+							PreparedStatement stmt = conn.prepareStatement(sql);
+							stmt.setInt(1, idKorisnik_clanski_broj);
+							stmt.setInt(2, idAktivnost_sifra);
+							stmt.setInt(3, idTermin_redni_broj);
+							stmt.setString(4, Zauzece_Datum);
+							stmt.setString(5, Zauzece_Br_Osoba);
+
+
+							  
+							stmt.execute();
+											
+							conn.close();
+
+							textFieldZauzeceBrOsoba.setText("");			/*prazni polja nakon unosa*/
+							textFieldZauzeceDatum.setText("");
 											
 							} catch(Exception ex) {
 							  JOptionPane.showMessageDialog(null, ex.getMessage(),"Gre�ka", JOptionPane.ERROR_MESSAGE);
 							}
 								
 						
-						System.out.println(idKorisnik_clanski_broj+" "+idAktivnost_sifra);
+						System.out.println(idKorisnik_clanski_broj+" "+idAktivnost_sifra+" "+idTermin_redni_broj+" "+Zauzece_Br_Osoba+" "+Zauzece_Datum);
 					
 					}
 				});
@@ -156,6 +169,9 @@ public class DLG_AgregacijaUnos_KorisnikNaAktivnostiUTerminu extends JDialog {
 		
 		CitanjeBaze_Aktivnost citanjeBaze_Aktivnost = new CitanjeBaze_Aktivnost();
 		citanjeBaze_Aktivnost.dohvatiAktivnosti(comboBoxAktivnost);
+		
+		CitanjeBaze_Termin citanjeBaze_Termin = new CitanjeBaze_Termin();
+		citanjeBaze_Termin.dohvatiTermine(comboBoxTermin);
 		
 
 
