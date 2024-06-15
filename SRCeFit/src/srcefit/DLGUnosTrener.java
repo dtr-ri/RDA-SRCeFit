@@ -164,7 +164,7 @@ public class DLGUnosTrener extends JDialog {
 		JMenuItem mntmNewMenuItem_17 = new JMenuItem("Dodaj novog clana");
 		mntmNewMenuItem_17.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DLGUnosClanova dlg = new DLGUnosClanova();
+				DLG_Unos_Korisnik dlg = new DLG_Unos_Korisnik();
 				dlg.setVisible(true);}});
 		mnNewMenu_11.add(mntmNewMenuItem_17);
 		
