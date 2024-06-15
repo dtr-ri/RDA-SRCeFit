@@ -19,14 +19,17 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
+import javax.swing.JComboBox;
 
-public class DLG_Unos_Teren extends JDialog {
+public class DLG_Izmjena_Teren extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textField_teren_naziv;
 	private JTextField textField_teren_namjena;
 	private JTextField textField_teren_max_kapacitet;
+	JComboBox comboBoxTeren;
+	
 
 
 	/**
@@ -34,7 +37,7 @@ public class DLG_Unos_Teren extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			DLG_Unos_Teren dialog = new DLG_Unos_Teren();
+			DLG_Izmjena_Teren dialog = new DLG_Izmjena_Teren();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -45,12 +48,12 @@ public class DLG_Unos_Teren extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public DLG_Unos_Teren() {
+	public DLG_Izmjena_Teren() {
 
 		setBounds(100, 100, 450, 300);
 		setBackground(new Color(255, 255, 255));
 		
-		setTitle("SRCeFIT Unos novog terena");
+		setTitle("SRCeFIT Izmjena postojećeg terena");
 		setBounds(100, 100, 611, 398);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(240, 255, 240));
@@ -59,36 +62,51 @@ public class DLG_Unos_Teren extends JDialog {
 		contentPanel.setLayout(null);
 		{
 			JLabel Novi_teren_naziv = new JLabel("Novi teren naziv");
-			Novi_teren_naziv.setBounds(10, 33, 122, 22);
+			Novi_teren_naziv.setBounds(10, 129, 122, 22);
 			contentPanel.add(Novi_teren_naziv);
 		}
 		{
 			JLabel Novi_teren_namjena = new JLabel("Novi teren namjena");
-			Novi_teren_namjena.setBounds(10, 66, 122, 13);
+			Novi_teren_namjena.setBounds(10, 162, 122, 13);
 			contentPanel.add(Novi_teren_namjena);
 		}
 		{
 			JLabel Novi_teren_max_kapacitet = new JLabel("Novi teren max kapacitet");
-			Novi_teren_max_kapacitet.setBounds(10, 94, 122, 13);
+			Novi_teren_max_kapacitet.setBounds(10, 190, 122, 13);
 			contentPanel.add(Novi_teren_max_kapacitet);
 		}
 		{
 			textField_teren_naziv = new JTextField();
-			textField_teren_naziv.setBounds(178, 33, 136, 19);
+			textField_teren_naziv.setBounds(178, 129, 136, 19);
 			contentPanel.add(textField_teren_naziv);
 			textField_teren_naziv.setColumns(10);
 		}
 		{
 			textField_teren_namjena = new JTextField();
-			textField_teren_namjena.setBounds(178, 62, 136, 19);
+			textField_teren_namjena.setBounds(178, 158, 136, 19);
 			contentPanel.add(textField_teren_namjena);
 			textField_teren_namjena.setColumns(10);
 		}
 		{
 			textField_teren_max_kapacitet = new JTextField();
 			textField_teren_max_kapacitet.setColumns(10);
-			textField_teren_max_kapacitet.setBounds(178, 91, 136, 19);
+			textField_teren_max_kapacitet.setBounds(178, 187, 136, 19);
 			contentPanel.add(textField_teren_max_kapacitet);
+		}
+		{
+			JLabel Izmjena_teren_izmjena = new JLabel("Unesite nove podatke:");
+			Izmjena_teren_izmjena.setBounds(10, 88, 279, 22);
+			contentPanel.add(Izmjena_teren_izmjena);
+		}
+		{
+			comboBoxTeren = new JComboBox();
+			comboBoxTeren.setBounds(10, 37, 420, 21);
+			contentPanel.add(comboBoxTeren);
+		}
+		{
+			JLabel Izmjena_teren_naslov = new JLabel("Koji teren želite mijenjati?");
+			Izmjena_teren_naslov.setBounds(10, 10, 413, 22);
+			contentPanel.add(Izmjena_teren_naslov);
 		}
 		{
 			JPanel buttonPane = new JPanel();
@@ -99,6 +117,10 @@ public class DLG_Unos_Teren extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					@SuppressWarnings("deprecation")
 					public void actionPerformed(ActionEvent e) {
+						
+						MapiranjeBaze_Teren teren = (MapiranjeBaze_Teren) comboBoxTeren.getSelectedItem();
+						int idTeren_sifra = teren.getTeren_sifra();
+												
 						String Novi_teren_naziv = textField_teren_naziv.getText();
 						String Novi_teren_namjena = textField_teren_namjena.getText();
 						String Novi_teren_max_kapacitet = textField_teren_max_kapacitet.getText();
@@ -111,13 +133,13 @@ public class DLG_Unos_Teren extends JDialog {
 							 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 							 	 Connection conn = DriverManager.getConnection ("jdbc:mysql://ucka.veleri.hr/dtrbovic?" + "user=dtrbovic&password=11");
 								  //id, naziv, namjena, max_kapacitet
-								  String sql = "INSERT INTO RDA_proj_Teren VALUES(NULL,?,?,?);";
+								  String sql = "UPDATE RDA_proj_Teren SET teren_naziv=?, teren_namjena=?, teren_max_kapacitet=? WHERE teren_sifra=?;";
 				
 								  PreparedStatement stmt = conn.prepareStatement(sql);
 								  stmt.setString(1, Novi_teren_naziv);
 								  stmt.setString(2, Novi_teren_namjena);
 								  stmt.setString(3, Novi_teren_max_kapacitet);
-
+								  stmt.setInt(4, idTeren_sifra);
 
 					  			  stmt.execute();
 												
@@ -137,7 +159,7 @@ public class DLG_Unos_Teren extends JDialog {
 								*/
 								return;
 							}
-							System.out.println(Novi_teren_naziv + " " + Novi_teren_namjena + " " + Novi_teren_max_kapacitet);
+							System.out.println(idTeren_sifra + " " + Novi_teren_naziv + " " + Novi_teren_namjena + " " + Novi_teren_max_kapacitet);
 							
 							
 						}
@@ -161,10 +183,9 @@ public class DLG_Unos_Teren extends JDialog {
 			}
 			
 		}
-	}
-
-	public static void main(String[] args) {
-		/SRCeFit/src/srcefit/DLG_Unos_Teren.java
+		CitanjeBaze_Teren citanjeBaze_Teren = new CitanjeBaze_Teren();
+		citanjeBaze_Teren.dohvatiTerene(comboBoxTeren);
+		
 	}
 }
 
