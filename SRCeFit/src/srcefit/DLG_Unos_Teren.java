@@ -162,10 +162,6 @@ public class DLG_Unos_Teren extends JDialog {
 			
 		}
 	}
-
-	public static void main(String[] args) {
-		/SRCeFit/src/srcefit/DLG_Unos_Teren.java
-	}
 }
 
 
