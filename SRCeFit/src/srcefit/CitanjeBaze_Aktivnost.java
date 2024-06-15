@@ -14,8 +14,8 @@ public class CitanjeBaze_Aktivnost {
 		try {						
 		 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			  Connection conn = DriverManager.getConnection 
-					  ("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" +
-							  "user=zdebeljuh&password=11");
+					  ("jdbc:mysql://ucka.veleri.hr/dtrbovic?" +
+							  "user=dtrbovic&password=11");
 			  //sifra, naziv, teren sifra, teren naziv, teren namj, kapacitet
 			  String sql = "SELECT * FROM RDA_proj_Aktivnost;";
 			  Statement stmt = conn.createStatement();
@@ -24,16 +24,12 @@ public class CitanjeBaze_Aktivnost {
 			  while (rs.next()) {
 				  int aktivnost_sifra = rs.getInt("aktivnost_sifra");
 				  String aktivnost_naziv = rs.getString("aktivnost_naziv");
-				  String teren_naziv = rs.getString("teren_naziv");
-				  String teren_namjena = rs.getString("teren_namjena");
-				  int teren_max_kapacitet = rs.getInt("teren_max_kapacitet");	  
+				  int teren_sifra = rs.getInt("teren_sifra");	  
 				  
 				  MapiranjeBaze_Aktivnost aktivnost = new MapiranjeBaze_Aktivnost();
 				  aktivnost.setAktivnost_sifra(aktivnost_sifra);
 				  aktivnost.setAktivnost_naziv(aktivnost_naziv);
-				  aktivnost.setTeren_naziv(teren_naziv);
-				  aktivnost.setTeren_namjena(teren_namjena);
-				  aktivnost.setTeren_max_kapacitet(teren_max_kapacitet);
+				  aktivnost.setTeren_sifra(teren_sifra);
 				  comboBoxAktivnost.addItem(aktivnost);	
 				  				  
 			  }		  

@@ -7,7 +7,6 @@ public class MapiranjeBaze_Korisnik {
 	String korisnik_adresa;
 	String korisnik_mob;
 	String korisnik_email;
-	String korisnik_datum_upisa;
 	
 	public int getKorisnik_clanski_broj() { return korisnik_clanski_broj;	}
 	public void setKorisnik_clanski_broj(int korisnik_clanski_broj) { this.korisnik_clanski_broj = korisnik_clanski_broj; }
@@ -27,11 +26,8 @@ public class MapiranjeBaze_Korisnik {
 	public String getKorisnik_email() { return korisnik_email; }
 	public void setKorisnik_email(String korisnik_email) { this.korisnik_email = korisnik_email; }
 
-	public String getKorisnik_datum_upisa() { return korisnik_datum_upisa; }
-	public void setKorisnik_datum_upisa(String korisnik_datum_upisa) { this.korisnik_datum_upisa = korisnik_datum_upisa; }
-	
 	@Override
 	public String toString() {
-		return korisnik_clanski_broj + ", " + korisnik_ime + ", " + korisnik_prezime + " (" + korisnik_datum_upisa + ")";
+		return korisnik_clanski_broj + ", " + korisnik_ime + ", " + korisnik_prezime;
 	}
 }

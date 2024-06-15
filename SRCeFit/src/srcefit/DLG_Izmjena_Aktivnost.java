@@ -120,13 +120,13 @@ public class DLG_Izmjena_Aktivnost extends JDialog {
 							try {						
 							 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 							 	 Connection conn = DriverManager.getConnection ("jdbc:mysql://ucka.veleri.hr/dtrbovic?" + "user=dtrbovic&password=11");
-								  //id, naziv, namjena, max_kapacitet
-								  String sql = "UPDATE RDA_proj_Aktivnost SET VALUES(?,?,?);";
+								  //id, naziv, teren_sifra
+								  String sql = "UPDATE RDA_proj_Aktivnost SET aktivnost_naziv=?, teren_sifra=? WHERE aktivnost_sifra=?;";
 				
 								  PreparedStatement stmt = conn.prepareStatement(sql);
-								  stmt.setInt(1, idAktivnost_sifra);
-								  stmt.setString(2, Nova_aktivnost_naziv);
-								  stmt.setInt(3, idTeren_sifra);
+								  stmt.setString(1, Nova_aktivnost_naziv);
+								  stmt.setInt(2, idTeren_sifra);
+								  stmt.setInt(3, idAktivnost_sifra);
 
 
 					  			  stmt.execute();
