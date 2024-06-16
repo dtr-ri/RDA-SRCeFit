@@ -22,6 +22,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.awt.Choice;
 
 public class DLGIzmjenaTermina extends JDialog {
 
