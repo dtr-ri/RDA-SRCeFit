@@ -4,44 +4,37 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.SystemColor;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-public class DLGDodavanjeSRC extends JDialog {
+public class DLGBrisanjeTerena extends JDialog {
 
     private final JPanel contentPanel = new JPanel();
-    private JTextField textFieldNoviSRC;
-    private JTextField textFieldAdresa;
-    private JComboBox<String> comboBoxAktivnosti;
-    private JTextField textFieldTel;
-    private JTextField textFieldEmail;
-    private JTextField textFieldDatumUnosa;
-    private JTextField textFieldOpisSRC;
-    private JTextField textFieldsifra;
+    private JComboBox<String> comboBoxTerenNaziv;
+    private JTextField textFieldTerenSifra;
+    private JTextField textFieldTerenNamjena;
+    private JTextField textFieldTerenKapacitet;
+    private String[][] tereni;
 
     public static void main(String[] args) {
         try {
-            DLGDodavanjeSRC dialog = new DLGDodavanjeSRC();
+            DLGBrisanjeTerena dialog = new DLGBrisanjeTerena();
             dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
             dialog.setVisible(true);
         } catch (Exception e) {
@@ -49,81 +42,53 @@ public class DLGDodavanjeSRC extends JDialog {
         }
     }
 
-    public DLGDodavanjeSRC() {
+    public DLGBrisanjeTerena() {
         setTitle("SRCeFIT");
-        setBounds(100, 100, 611, 398);
+        setBounds(100, 100, 663, 479);
         getContentPane().setLayout(new BorderLayout());
         contentPanel.setBackground(new Color(240, 255, 240));
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
         getContentPane().add(contentPanel, BorderLayout.CENTER);
         contentPanel.setLayout(null);
 
-        JLabel lblNewLabel = new JLabel("Naziv novog Sportsko-rekreacijskog centra");
-        lblNewLabel.setBounds(10, 46, 289, 14);
+        JLabel lblNewLabel = new JLabel("Šifra terena");
+        lblNewLabel.setBounds(10, 65, 105, 14);
         contentPanel.add(lblNewLabel);
 
-        textFieldNoviSRC = new JTextField();
-        textFieldNoviSRC.setBounds(320, 43, 211, 20);
-        contentPanel.add(textFieldNoviSRC);
-        textFieldNoviSRC.setColumns(10);
+        comboBoxTerenNaziv = new JComboBox<>();
+        comboBoxTerenNaziv.setBounds(213, 18, 211, 20);
+        contentPanel.add(comboBoxTerenNaziv);
 
-        JLabel lblNewLabel_1 = new JLabel("Adresa");
-        lblNewLabel_1.setBounds(10, 82, 68, 14);
+        JLabel lblNewLabel_4 = new JLabel("Naziv terena");
+        lblNewLabel_4.setBounds(10, 21, 193, 14);
+        contentPanel.add(lblNewLabel_4);
+
+        textFieldTerenSifra = new JTextField();
+        textFieldTerenSifra.setBounds(213, 62, 211, 20);
+        contentPanel.add(textFieldTerenSifra);
+        textFieldTerenSifra.setColumns(10);
+
+        JLabel lblNewLabel_1 = new JLabel("Namjena terena");
+        lblNewLabel_1.setBounds(10, 108, 193, 14);
         contentPanel.add(lblNewLabel_1);
 
-        textFieldAdresa = new JTextField();
-        textFieldAdresa.setBounds(88, 79, 211, 20);
-        contentPanel.add(textFieldAdresa);
-        textFieldAdresa.setColumns(10);
+        textFieldTerenNamjena = new JTextField();
+        textFieldTerenNamjena.setBounds(213, 105, 211, 20);
+        contentPanel.add(textFieldTerenNamjena);
+        textFieldTerenNamjena.setColumns(10);
 
-        JLabel lblNewLabel_2 = new JLabel("Aktivnosti/sportovi u ponudi novog SRC-a");
-        lblNewLabel_2.setBounds(10, 191, 253, 14);
+        JLabel lblNewLabel_2 = new JLabel("Najveći kapacitet");
+        lblNewLabel_2.setBounds(10, 149, 193, 14);
         contentPanel.add(lblNewLabel_2);
-
-        comboBoxAktivnosti = new JComboBox<>();
-        comboBoxAktivnosti.setBounds(248, 187, 176, 22);
-        contentPanel.add(comboBoxAktivnosti);
-
-        JLabel lblNewLabel_3 = new JLabel("Kratak tektualni opis novog SRC-a");
-        lblNewLabel_3.setBounds(10, 240, 207, 14);
-        contentPanel.add(lblNewLabel_3);
-
-        JLabel lblNewLabel_tel = new JLabel("Telefon");
-        lblNewLabel_tel.setBounds(10, 110, 46, 14);
-        contentPanel.add(lblNewLabel_tel);
-
-        textFieldTel = new JTextField();
-        textFieldTel.setBounds(88, 110, 211, 20);
-        contentPanel.add(textFieldTel);
-        textFieldTel.setColumns(10);
-
-        JLabel lblNewLabel_email = new JLabel("Email");
-        lblNewLabel_email.setBounds(10, 148, 46, 14);
-        contentPanel.add(lblNewLabel_email);
-
-        textFieldEmail = new JTextField();
-        textFieldEmail.setBounds(88, 145, 211, 20);
-        contentPanel.add(textFieldEmail);
-        textFieldEmail.setColumns(10);
-
-        JLabel lblNewLabel_datumUnosa = new JLabel("Datum unosa");
-        lblNewLabel_datumUnosa.setBounds(10, 301, 76, 14);
-        contentPanel.add(lblNewLabel_datumUnosa);
-
-        textFieldDatumUnosa = new JTextField();
-        textFieldDatumUnosa.setBounds(88, 298, 151, 20);
-        contentPanel.add(textFieldDatumUnosa);
-        textFieldDatumUnosa.setColumns(10);
-
-        textFieldOpisSRC = new JTextField();
-        textFieldOpisSRC.setBounds(10, 265, 521, 20);
-        contentPanel.add(textFieldOpisSRC);
-        textFieldOpisSRC.setColumns(10);
+        
+        textFieldTerenKapacitet = new JTextField();
+        textFieldTerenKapacitet.setBounds(213, 145, 211, 22);
+        contentPanel.add(textFieldTerenKapacitet);
+        textFieldTerenKapacitet.setColumns(10);
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.setBackground(SystemColor.menu);
-        menuBar.setBounds(0, 0, 595, 22);
-        contentPanel.add(menuBar);
+        setJMenuBar(menuBar);
 
         JMenu mnNewMenu = new JMenu("Kontrola");
         menuBar.add(mnNewMenu);
@@ -202,19 +167,28 @@ public class DLGDodavanjeSRC extends JDialog {
         });
         mnNewMenu_7.add(mntmNewMenuItem_10);
 
-        JMenu mnNewMenu_8 = new JMenu("Trener");
+        JMenu mnNewMenu_8 = new JMenu("Teren");
         mnNewMenu_1.add(mnNewMenu_8);
 
-        JMenuItem mntmNewMenuItem_2 = new JMenuItem("Dodaj trenera");
-     /*   mntmNewMenuItem_2.addActionListener(new ActionListener() {
+        JMenuItem mntmNewMenuItem_2 = new JMenuItem("Dodaj teren");
+        mntmNewMenuItem_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                DLG_Unos_Trener dlg = new DLGUnosTrener();
+                DLGDodavanjeTerena dlg = new DLGDodavanjeTerena();
                 dlg.setVisible(true);
             }
-        });*/
+        });
         mnNewMenu_8.add(mntmNewMenuItem_2);
+        
+        JMenuItem mntmNewMenuItem_5 = new JMenuItem("Pregledaj terene");
+        mntmNewMenuItem_5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DLGPrikazTerena dlg = new DLGPrikazTerena();
+                dlg.setVisible(true);
+            }
+        });
+        mnNewMenu_8.add(mntmNewMenuItem_5);
 
-        JMenuItem mntmNewMenuItem_11 = new JMenuItem("Mijenjaj trenera");
+        JMenuItem mntmNewMenuItem_11 = new JMenuItem("Mijenjaj teren");
      /*   mntmNewMenuItem_11.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 DLGIzmjenaTrener dlg = new DLGIzmjenaTrener();
@@ -223,7 +197,7 @@ public class DLGDodavanjeSRC extends JDialog {
         });*/
         mnNewMenu_8.add(mntmNewMenuItem_11);
 
-        JMenuItem mntmNewMenuItem_12 = new JMenuItem("Obrisi trenera");
+        JMenuItem mntmNewMenuItem_12 = new JMenuItem("Obrisi teren");
    /*     mntmNewMenuItem_12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 DLGBrisanjeTrener dlg = new DLGBrisanjeTrener();
@@ -243,15 +217,6 @@ public class DLGDodavanjeSRC extends JDialog {
             }
         });
         mnNewMenu_9.add(mntmNewMenuItem_3);
-
-        JMenuItem mntmNewMenuItem_5 = new JMenuItem("Mijenjaj termin");
-        mntmNewMenuItem_5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                DLGIzmjenaTermina dlg = new DLGIzmjenaTermina();
-                dlg.setVisible(true);
-            }
-        });
-        mnNewMenu_9.add(mntmNewMenuItem_5);
 
         JMenuItem mntmNewMenuItem_13 = new JMenuItem("Obrisi termin");
         mntmNewMenuItem_13.addActionListener(new ActionListener() {
@@ -351,78 +316,23 @@ public class DLGDodavanjeSRC extends JDialog {
 
         JMenu mnNewMenu_4 = new JMenu("Racunovodstvo");
         menuBar.add(mnNewMenu_4);
-        
-        JLabel lblNewLabel_centar_sifra = new JLabel("Sifra SRCentra");
-        lblNewLabel_centar_sifra.setBounds(351, 74, 94, 14);
-        contentPanel.add(lblNewLabel_centar_sifra);
-        
-        textFieldsifra = new JTextField();
-        textFieldsifra.setBounds(455, 71, 86, 20);
-        contentPanel.add(textFieldsifra);
-        textFieldsifra.setColumns(10);
 
         JPanel buttonPane = new JPanel();
         buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
         getContentPane().add(buttonPane, BorderLayout.SOUTH);
 
-        JButton okButton = new JButton("OK");
-        okButton.addActionListener(new ActionListener() {
+        JButton deleteButton = new JButton("Obrisati");
+        deleteButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String centarSifra = generateNextCentarSifra();
-                String naziv = textFieldNoviSRC.getText();
-                String adresa = textFieldAdresa.getText();
-                String telefon = textFieldTel.getText();
-                String email = textFieldEmail.getText();
-                int selectedIndex = comboBoxAktivnosti.getSelectedIndex();
-                String[][] aktivnosti =fetchActivitiesFromDatabase();
-                String aktivnost_sifra = aktivnosti[selectedIndex][0];;
-                String opis = textFieldOpisSRC.getText();
-                String datum = textFieldDatumUnosa.getText();
-
-                if (naziv.equals("") || adresa.equals("") || telefon.equals("") || email.equals("") || aktivnost_sifra == null || opis.equals("") || datum.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Sva polja moraju biti popunjena", "Greška", JOptionPane.WARNING_MESSAGE);
-                    return;
+                int confirmation = JOptionPane.showConfirmDialog(null, "Želite li obrisati odabrani teren?", "Da", JOptionPane.OK_CANCEL_OPTION);
+                if (confirmation == JOptionPane.OK_OPTION) {
+                    deleteSelectedTeren();
                 }
-
-                try {
-                    Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
-
-                    String sql = "INSERT INTO RDA_proj_SRCentar (centar_sifra, centar_naziv, centar_adresa, centar_tel, centar_email, aktivnost_sifra, centar_opis, centar_datum_unosa) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                    PreparedStatement stmt = conn.prepareStatement(sql);
-                    stmt.setString(1, centarSifra);
-                    stmt.setString(2, naziv);
-                    stmt.setString(3, adresa);
-                    stmt.setString(4, telefon);
-                    stmt.setString(5, email);
-                    stmt.setString(6, aktivnost_sifra);
-                    stmt.setString(7, opis);
-                    stmt.setString(8, datum);
-
-                    stmt.execute();
-                    conn.close();
-
-                    textFieldNoviSRC.setText("");
-                    textFieldAdresa.setText("");
-                    textFieldTel.setText("");
-                    textFieldEmail.setText("");
-                    comboBoxAktivnosti.setSelectedIndex(-1);
-                    textFieldOpisSRC.setText("");
-                    textFieldDatumUnosa.setText("");
-
-                    JOptionPane.showMessageDialog(null, "Uspješno ste upisali novi SRCentar", "Informacija", JOptionPane.INFORMATION_MESSAGE);
-
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
-                }
-
-                String aktivnost = null;
-				System.out.println(naziv + " " + adresa + " " + telefon + " " + email + " " + aktivnost + " " + opis + " " + datum);
             }
         });
-        okButton.setActionCommand("OK");
-        buttonPane.add(okButton);
-        getRootPane().setDefaultButton(okButton);
+        deleteButton.setActionCommand("Delete");
+        buttonPane.add(deleteButton);
+        getRootPane().setDefaultButton(deleteButton);
 
         JButton cancelButton = new JButton("Cancel");
         cancelButton.addActionListener(new ActionListener() {
@@ -432,50 +342,49 @@ public class DLGDodavanjeSRC extends JDialog {
         });
         cancelButton.setActionCommand("Cancel");
         buttonPane.add(cancelButton);
-        
-        String nextSifra = generateNextCentarSifra();
-        textFieldsifra.setText(nextSifra);
 
-        populateComboBoxAktivnosti();
-        
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String today = LocalDate.now().format(formatter);
-        textFieldDatumUnosa.setText(today);
+        populateComboBoxTerenSifra();
+
+        comboBoxTerenNaziv.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateFields();
+            }
+        });
     }
 
-    private void populateComboBoxAktivnosti() {
-        String[][] aktivnosti = fetchActivitiesFromDatabase();
-        String[] aktivnosti_naziv = new String[aktivnosti.length];
-        for (int i = 0; i < aktivnosti.length; i++) {
-        	aktivnosti_naziv[i] = aktivnosti[i][1]; 
+    private void populateComboBoxTerenSifra() {
+        tereni = fetchTereniFromDatabase();
+        String[] TereniNazivi = new String[tereni.length];
+        for (int i = 0; i < tereni.length; i++) {
+            TereniNazivi[i] = tereni[i][1];
         }
-        comboBoxAktivnosti.setModel(new DefaultComboBoxModel<String>(aktivnosti_naziv));
+        comboBoxTerenNaziv.setModel(new DefaultComboBoxModel<>(TereniNazivi));
     }
 
-    private String[][] fetchActivitiesFromDatabase() {
-        String[][] aktivnosti = null;
+    private String[][] fetchTereniFromDatabase() {
+        String[][] tereni = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
 
-            String countSql = "SELECT COUNT(*) AS total FROM RDA_proj_Aktivnost";
+            String countSql = "SELECT COUNT(*) AS total FROM RDA_proj_Teren";
             PreparedStatement countStmt = conn.prepareStatement(countSql);
             ResultSet countRs = countStmt.executeQuery();
-            int totalaktivnosti = 0;
+            int totalTereni = 0;
             if (countRs.next()) {
-                totalaktivnosti = countRs.getInt("total");
+                totalTereni = countRs.getInt("total");
             }
 
-            aktivnosti = new String[totalaktivnosti][2];
+            tereni = new String[totalTereni][2];
 
-            String sql = "SELECT aktivnost_sifra, aktivnost_naziv FROM RDA_proj_Aktivnost";
+            String sql = "SELECT teren_sifra, teren_naziv FROM RDA_proj_Teren";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
             int index = 0;
             while (rs.next()) {
-            	aktivnosti[index][0] = rs.getString("aktivnost_sifra");
-            	aktivnosti[index][1] = rs.getString("aktivnost_naziv");
+                tereni[index][0] = rs.getString("teren_sifra");
+                tereni[index][1] = rs.getString("teren_naziv");
                 index++;
             }
 
@@ -483,30 +392,63 @@ public class DLGDodavanjeSRC extends JDialog {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
         }
-        return aktivnosti;
+        return tereni;
     }
 
-    private String generateNextCentarSifra() {
+    private void updateFields() {
+        int selectedIndex = comboBoxTerenNaziv.getSelectedIndex();
+        if (selectedIndex < 0) return;
+
+        String selectedSifra = tereni[selectedIndex][0];
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
 
-            String sql = "SELECT MAX(centar_sifra) AS max_sifra FROM RDA_proj_SRCentar";
+            String sql = "SELECT teren_sifra, teren_namjena, teren_max_kapacitet FROM RDA_proj_Teren WHERE teren_sifra = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, selectedSifra);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                int maxSifra = rs.getInt("max_sifra");
-                conn.close();
-                return String.valueOf(maxSifra + 1);
-            } else {
-                conn.close();
-                return "1";
+                textFieldTerenSifra.setText(rs.getString("teren_sifra"));
+                textFieldTerenNamjena.setText(rs.getString("teren_namjena"));
+                textFieldTerenKapacitet.setText(rs.getString("teren_max_kapacitet"));
             }
+
+            conn.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void deleteSelectedTeren() {
+        int selectedIndex = comboBoxTerenNaziv.getSelectedIndex();
+        if (selectedIndex < 0) return;
+
+        String selectedNaziv = tereni[selectedIndex][0];
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
+
+            String sql = "DELETE FROM RDA_proj_Teren WHERE teren_sifra = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, selectedNaziv);
+            stmt.executeUpdate();
+
+            conn.close();
+
+            JOptionPane.showMessageDialog(null, "Teren je uspješno obrisan!", "Informacija", JOptionPane.INFORMATION_MESSAGE);
+            populateComboBoxTerenSifra();
+            clearFields();
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
-            return null;
         }
+    }
+
+    private void clearFields() {
+        textFieldTerenSifra.setText("");
+        textFieldTerenNamjena.setText("");
+        textFieldTerenKapacitet.setText("");
     }
 }
