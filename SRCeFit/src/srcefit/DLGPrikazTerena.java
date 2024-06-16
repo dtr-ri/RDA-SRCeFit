@@ -140,12 +140,12 @@ public class DLGPrikazTerena extends JDialog {
         mnNewMenu_8.add(mntmNewMenuItem_2);
         
         JMenuItem mntmNewMenuItem_5 = new JMenuItem("Pregledaj terene");
-     /*   mntmNewMenuItem_11.addActionListener(new ActionListener() {
+        mntmNewMenuItem_5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                DLGIzmjenaTrener dlg = new DLGIzmjenaTrener();
+                DLGPrikazTerena dlg = new DLGPrikazTerena();
                 dlg.setVisible(true);
             }
-        });*/
+        });
         mnNewMenu_8.add(mntmNewMenuItem_5);
 
         JMenuItem mntmNewMenuItem_11 = new JMenuItem("Mijenjaj teren");
@@ -158,12 +158,12 @@ public class DLGPrikazTerena extends JDialog {
         mnNewMenu_8.add(mntmNewMenuItem_11);
 
         JMenuItem mntmNewMenuItem_12 = new JMenuItem("Obrisi teren");
-   /*     mntmNewMenuItem_12.addActionListener(new ActionListener() {
+        mntmNewMenuItem_12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                DLGBrisanjeTrener dlg = new DLGBrisanjeTrener();
+                DLGBrisanjeTerena dlg = new DLGBrisanjeTerena();
                 dlg.setVisible(true);
             }
-        });*/
+        });
         mnNewMenu_8.add(mntmNewMenuItem_12);
 
         JMenu mnNewMenu_9 = new JMenu("Termin");
