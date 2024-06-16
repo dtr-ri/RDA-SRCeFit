@@ -80,7 +80,22 @@ public class DLGprazanprozor extends JDialog {
 				dlg.setVisible(true);}});
 		mnNewMenu_6.add(mntmNewMenuItem_6);
 		
+		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Prikaz SRC-a");
+		  mntmNewMenuItem_4.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	                DLGPrikazSRC dlg = new DLGPrikazSRC();
+	                dlg.setVisible(true);
+	            }
+	        });
+		mnNewMenu_6.add(mntmNewMenuItem_4);
+		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Mijenjaj postojeci SRC");
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DLGPromjenaSRC dlg = new DLGPromjenaSRC();
+                dlg.setVisible(true);
+            }
+        });
 		mnNewMenu_6.add(mntmNewMenuItem_7);
 		
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Obrisi SRC");
@@ -192,6 +207,4 @@ public class DLGprazanprozor extends JDialog {
 		JMenu mnNewMenu_4 = new JMenu("Racunovodstvo");
 		menuBar.add(mnNewMenu_4);
 	}
-	
-
 }

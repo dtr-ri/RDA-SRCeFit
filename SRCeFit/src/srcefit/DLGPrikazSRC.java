@@ -68,12 +68,22 @@ public class DLGPrikazSRC extends JDialog {
         mnNewMenu_1.add(mnNewMenu_6);
 
         JMenuItem mntmNewMenuItem_6 = new JMenuItem("Dodaj novi SRC");
+        mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGDodavanjeSRC dlg = new DLGDodavanjeSRC();
+				dlg.setVisible(true);}});
         mnNewMenu_6.add(mntmNewMenuItem_6);
         
         JMenuItem mntmNewMenuItem_4 = new JMenuItem("Prikaz SRC-a");
         mnNewMenu_6.add(mntmNewMenuItem_4);
 
         JMenuItem mntmNewMenuItem_7 = new JMenuItem("Mijenjaj postojeci SRC");
+        mntmNewMenuItem_7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DLGPromjenaSRC dlg = new DLGPromjenaSRC();
+                dlg.setVisible(true);
+            }
+        });
         mnNewMenu_6.add(mntmNewMenuItem_7);
 
         JMenuItem mntmNewMenuItem_8 = new JMenuItem("Obrisi SRC");
