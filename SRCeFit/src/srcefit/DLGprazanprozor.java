@@ -99,6 +99,12 @@ public class DLGprazanprozor extends JDialog {
 		mnNewMenu_6.add(mntmNewMenuItem_7);
 		
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Obrisi SRC");
+		mntmNewMenuItem_8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DLGBrisanjeSRC dlg = new DLGBrisanjeSRC();
+                dlg.setVisible(true);
+            }
+        });
 		mnNewMenu_6.add(mntmNewMenuItem_8);
 		
 		JMenu mnNewMenu_7 = new JMenu("Aktivnost/sport");
@@ -117,20 +123,36 @@ public class DLGprazanprozor extends JDialog {
 		JMenuItem mntmNewMenuItem_10 = new JMenuItem("Obrisi aktivnost/sport");
 		mnNewMenu_7.add(mntmNewMenuItem_10);
 		
-		JMenu mnNewMenu_8 = new JMenu("Trener");
+		JMenu mnNewMenu_8 = new JMenu("Teren");
+		
 		mnNewMenu_1.add(mnNewMenu_8);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Dodaj trenera");
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Dodaj teren");
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DLGUnosTrener dlg = new DLGUnosTrener();
+				DLGDodavanjeTerena dlg = new DLGDodavanjeTerena();
 				dlg.setVisible(true);}});
 		mnNewMenu_8.add(mntmNewMenuItem_2);
 		
-		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Mijenjaj trenera");
+		JMenuItem mntmNewMenuItem_25 = new JMenuItem("Prikaz terena");
+		mntmNewMenuItem_25.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGPrikazTerena dlg = new DLGPrikazTerena();
+				dlg.setVisible(true);}});
+		mnNewMenu_8.add(mntmNewMenuItem_25);
+		
+		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Mijenjaj teren");
+		mntmNewMenuItem_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGPromjenaTerena dlg = new DLGPromjenaTerena();
+				dlg.setVisible(true);}});
 		mnNewMenu_8.add(mntmNewMenuItem_11);
 		
-		JMenuItem mntmNewMenuItem_12 = new JMenuItem("Obrisi trenera");
+		JMenuItem mntmNewMenuItem_12 = new JMenuItem("Obrisi teren");
+		mntmNewMenuItem_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGBrisanjeTerena dlg = new DLGBrisanjeTerena();
+				dlg.setVisible(true);}});
 		mnNewMenu_8.add(mntmNewMenuItem_12);
 		
 		JMenu mnNewMenu_9 = new JMenu("Termin");
@@ -144,9 +166,17 @@ public class DLGprazanprozor extends JDialog {
 		mnNewMenu_9.add(mntmNewMenuItem_3);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Mijenjaj termin");
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGIzmjenaTermina dlg = new DLGIzmjenaTermina();
+				dlg.setVisible(true);}});
 		mnNewMenu_9.add(mntmNewMenuItem_5);
 		
 		JMenuItem mntmNewMenuItem_13 = new JMenuItem("Obrisi termin");
+		mntmNewMenuItem_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGBrisanjeTermina dlg = new DLGBrisanjeTermina();
+				dlg.setVisible(true);}});
 		mnNewMenu_9.add(mntmNewMenuItem_13);
 		
 		JMenu mnNewMenu_2 = new JMenu("Korisnici");
@@ -174,10 +204,25 @@ public class DLGprazanprozor extends JDialog {
 				dlg.setVisible(true);}});
 		mnNewMenu_11.add(mntmNewMenuItem_17);
 		
+		JMenuItem mntmNewMenuItem_26 = new JMenuItem("Prikaz clana");
+		mntmNewMenuItem_26.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Prikaz_Korisnik dlg = new DLG_Prikaz_Korisnik();
+				dlg.setVisible(true);}});
+		mnNewMenu_11.add(mntmNewMenuItem_26);
+		
 		JMenuItem mntmNewMenuItem_18 = new JMenuItem("Mijenjaj clana");
+		mntmNewMenuItem_18.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Izmjena_Korisnik dlg = new DLG_Izmjena_Korisnik();
+				dlg.setVisible(true);}});
 		mnNewMenu_11.add(mntmNewMenuItem_18);
 		
 		JMenuItem mntmNewMenuItem_19 = new JMenuItem("Obrisi clana");
+		mntmNewMenuItem_19.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Brisanje_Korisnik dlg = new DLG_Brisanje_Korisnik();
+				dlg.setVisible(true);}});
 		mnNewMenu_11.add(mntmNewMenuItem_19);
 		
 		JMenu mnNewMenu_12 = new JMenu("Posebne pogodnosti");
