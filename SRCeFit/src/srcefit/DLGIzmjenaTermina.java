@@ -105,7 +105,7 @@ public class DLGIzmjenaTermina extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 String termin_redni_broj = (String) comboBoxtermin_redni_broj.getSelectedItem();
                 String datum = textFieldtermin_datum.getText();
-                JComboBox<String> comboBoxtermin_pocetak_sati = null;
+                //JComboBox<String> comboBoxtermin_pocetak_sati = null;
 				String početakSati = (String) comboBoxtermin_pocetak_sati.getSelectedItem();
                 String trajanjeSati = (String) comboBoxtermin_trajanje_sati.getSelectedItem();
 
@@ -189,8 +189,8 @@ public class DLGIzmjenaTermina extends JDialog {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                textFieldtermin_datum.setText(rs.getString("Datum"));
-                JComboBox<String> comboBoxtermin_pocetak_sati = null;
+                textFieldtermin_datum.setText(rs.getString("termin_datum"));
+                //JComboBox<String> comboBoxtermin_pocetak_sati = null; - brisati
 				comboBoxtermin_pocetak_sati.setSelectedItem(rs.getString("Početak sati"));
                 comboBoxtermin_trajanje_sati.setSelectedItem(rs.getString("TrajanjeSati"));
             }
