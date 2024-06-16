@@ -86,11 +86,11 @@ public class DLG_Prikaz_Korisnik extends JDialog {
 			}
 			*/
 		}
-		selectTermin();
+		selectKorisnik();
 		
 	}
 
-	private void selectTermin() {
+	private void selectKorisnik() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/dtrbovic?" + "user=dtrbovic&password=11");
