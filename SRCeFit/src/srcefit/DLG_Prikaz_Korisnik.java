@@ -1,6 +1,7 @@
 package srcefit;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.sql.*;
 
@@ -41,6 +42,7 @@ public class DLG_Prikaz_Korisnik extends JDialog {
 		setTitle("SRCeFIT Pregled korisnika");
 		setBounds(100, 100, 701, 435);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(240, 255, 240));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
@@ -84,11 +86,11 @@ public class DLG_Prikaz_Korisnik extends JDialog {
 			}
 			*/
 		}
-		selectTermin();
+		selectKorisnik();
 		
 	}
 
-	private void selectTermin() {
+	private void selectKorisnik() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/dtrbovic?" + "user=dtrbovic&password=11");
