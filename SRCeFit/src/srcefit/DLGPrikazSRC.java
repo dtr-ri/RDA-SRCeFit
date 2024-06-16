@@ -205,7 +205,7 @@ public class DLGPrikazSRC extends JDialog {
         JMenuItem mntmNewMenuItem_21 = new JMenuItem("Mijenjaj posebnu pogodnost");
         mnNewMenu_12.add(mntmNewMenuItem_21);
 
-        JMenuItem mntmNewMenuItem_22 = new JMenuItem("Dodijeli posebnu pogodnost canu");
+        JMenuItem mntmNewMenuItem_22 = new JMenuItem("Dodijeli posebnu pogodnost clanu");
         mnNewMenu_12.add(mntmNewMenuItem_22);
 
         JMenuItem mntmNewMenuItem_23 = new JMenuItem("Obrisi posebnu pogodnost");
