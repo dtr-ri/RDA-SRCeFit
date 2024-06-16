@@ -45,7 +45,7 @@ public class DLG_Unos_AGR_KorisnikNaAktivnostiUTerminu extends JDialog {
 	 * Create the dialog.
 	 */
 	public DLG_Unos_AGR_KorisnikNaAktivnostiUTerminu() {
-		setTitle("KorisnikNaAktivnostiUTerminu");
+		setTitle("SRCeFIT Unos zauzeća aktivnosti i termina - KorisnikNaAktivnostiUTerminu");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
