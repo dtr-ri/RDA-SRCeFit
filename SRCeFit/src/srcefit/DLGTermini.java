@@ -23,6 +23,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.awt.Window.Type;
+import javax.swing.UIManager;
 
 public class DLGTermini extends JDialog {
 
@@ -50,48 +52,48 @@ public class DLGTermini extends JDialog {
 	 */
 	public DLGTermini() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Korisnik\\Downloads\\srcefit3.png"));
-		setTitle("SRCeFIT");
+		setTitle("Unos Termina");
 		setBounds(100, 100, 553, 373);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(new Color(240, 255, 240));
+		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
 		JLabel lblRedniBroj = new JLabel("Redni Broj");
-		lblRedniBroj.setBounds(26, 34, 84, 21);
+		lblRedniBroj.setBounds(26, 57, 84, 21);
 		contentPanel.add(lblRedniBroj);
 		
 		textFieldRedniBroj = new JTextField();
-		textFieldRedniBroj.setBounds(96, 36, 96, 19);
+		textFieldRedniBroj.setBounds(96, 58, 96, 19);
 		contentPanel.add(textFieldRedniBroj);
 		textFieldRedniBroj.setColumns(10);
 		
 		JLabel lblDatum = new JLabel("Datum");
-		lblDatum.setBounds(26, 88, 45, 13);
+		lblDatum.setBounds(26, 111, 45, 13);
 		contentPanel.add(lblDatum);
 		
 		textFieldDatum = new JTextField();
-		textFieldDatum.setBounds(96, 85, 90, 19);
+		textFieldDatum.setBounds(96, 108, 96, 19);
 		contentPanel.add(textFieldDatum);
 		textFieldDatum.setColumns(10);
 		
 		JLabel lblPočetakSati = new JLabel("Početak sati");
-		lblPočetakSati.setBounds(26, 134, 71, 13);
+		lblPočetakSati.setBounds(26, 166, 71, 13);
 		contentPanel.add(lblPočetakSati);
 		
 		JComboBox comboBoxPočetakSati = new JComboBox();
 		comboBoxPočetakSati.setModel(new DefaultComboBoxModel(new String[] {"18", "19", "20", "21"}));
-		comboBoxPočetakSati.setBounds(96, 131, 96, 21);
+		comboBoxPočetakSati.setBounds(96, 162, 96, 21);
 		contentPanel.add(comboBoxPočetakSati);
 		
 		JLabel lblTrajanjeSati = new JLabel("Trajanje sati");
-		lblTrajanjeSati.setBounds(26, 189, 71, 13);
+		lblTrajanjeSati.setBounds(26, 215, 71, 13);
 		contentPanel.add(lblTrajanjeSati);
 		
 		comboBoxTrajanjeSati = new JComboBox();
 		comboBoxTrajanjeSati.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
-		comboBoxTrajanjeSati.setBounds(96, 186, 96, 21);
+		comboBoxTrajanjeSati.setBounds(96, 211, 96, 21);
 		contentPanel.add(comboBoxTrajanjeSati);
 		
 		setBounds(100, 100, 450, 300);
