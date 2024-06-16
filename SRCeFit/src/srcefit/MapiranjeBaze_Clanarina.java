@@ -6,7 +6,7 @@ public class MapiranjeBaze_Clanarina {
 	string clanarina_opis;
 
 	public int getClanarina_sifra() { return clanarina_sifra;	}
-	public void setClarina_sifra(int clanarina_sifra) { this.clanarina_sifra = clanarina_sifra; }
+	public void setClanarina_sifra(int clanarina_sifra) { this.clanarina_sifra = clanarina_sifra; }
 
 	public String getClanarina_naziv() { return Clanarina_naziv; }
 	public void setClanarina_naziv(String clanarina_naziv) { this.clanarina_naziv = clanarina_naziv; }
