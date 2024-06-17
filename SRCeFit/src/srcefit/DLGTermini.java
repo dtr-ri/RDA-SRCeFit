@@ -265,6 +265,12 @@ public class DLGTermini extends JDialog {
 					return;
 				}
 				
+				//************************SAD ZA KOD NAPRAVITI  ***********************************************
+				if (početakSati.equals("21") && trajanjeSati.equals("2")  || trajanjeSati.equals("3") || trajanjeSati.equals("4"))    {
+                    JOptionPane.showMessageDialog(null, "Trajanje sati ne može biti duže od 1 h", "Greška", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+				
 				try {						
 					Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 					Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/zdebeljuh?" + "user=zdebeljuh&password=11");
@@ -305,5 +311,4 @@ public class DLGTermini extends JDialog {
 		buttonPane.add(cancelButton);
 	}
 }
-
-		
+	

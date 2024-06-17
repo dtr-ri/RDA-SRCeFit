@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.sql.DriverManager;
@@ -179,14 +180,15 @@ public class DLG_Izmjena_Korisnik extends JDialog {
 								  textField_adresa.setText("");
 								  textField_tel.setText("");
 								  textField_email.setText("");
-
+								  
+							      JOptionPane.showMessageDialog(null, "Korisnika je uspješno izmijenjen", "Obavijest", JOptionPane.INFORMATION_MESSAGE);
 
 							} 
 							catch(Exception ex) {
-								/*
+								
 
 								JOptionPane.showMessageDialog(null, "nisu uneseni svi obavezni podaci","Greška",JOptionPane.WARNING_MESSAGE);
-								*/
+								
 								return;
 							}
 							System.out.println(idKorisnik_clanski_broj + " " + Novi_korisnik_Ime + " " + Novi_korisnik_Prezime + " " + Novi_korisnik_adresa + " " + Novi_korisnik_tel + " " + Novi_korisnik_email);
