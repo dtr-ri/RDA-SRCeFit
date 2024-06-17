@@ -123,14 +123,29 @@ public class DLGprazanprozor extends JDialog {
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Dodaj teren");
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DLGUnosTrener dlg = new DLGUnosTrener();
+				DLGDodavanjeTerena dlg = new DLGDodavanjeTerena();
 				dlg.setVisible(true);}});
 		mnNewMenu_8.add(mntmNewMenuItem_2);
 		
+		JMenuItem mntmNewMenuItem_2_1 = new JMenuItem("Prikaz terena");
+		mntmNewMenuItem_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGPrikazTerena dlg = new DLGPrikazTerena();
+				dlg.setVisible(true);}});
+		mnNewMenu_8.add(mntmNewMenuItem_2_1);
+		
 		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Mijenjaj teren");
+		mntmNewMenuItem_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGPromjenaTerena dlg = new DLGPromjenaTerena();
+				dlg.setVisible(true);}});
 		mnNewMenu_8.add(mntmNewMenuItem_11);
 		
 		JMenuItem mntmNewMenuItem_12 = new JMenuItem("Obrisi teren");
+		mntmNewMenuItem_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGBrisanjeTerena dlg = new DLGBrisanjeTerena();
+				dlg.setVisible(true);}});
 		mnNewMenu_8.add(mntmNewMenuItem_12);
 		
 		JMenu mnNewMenu_9 = new JMenu("Termin");
@@ -144,9 +159,17 @@ public class DLGprazanprozor extends JDialog {
 		mnNewMenu_9.add(mntmNewMenuItem_3);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Mijenjaj termin");
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGIzmjenaTermina dlg = new DLGIzmjenaTermina();
+				dlg.setVisible(true);}});
 		mnNewMenu_9.add(mntmNewMenuItem_5);
 		
 		JMenuItem mntmNewMenuItem_13 = new JMenuItem("Obrisi termin");
+		mntmNewMenuItem_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGBrisanjeTermina dlg = new DLGBrisanjeTermina();
+				dlg.setVisible(true);}});
 		mnNewMenu_9.add(mntmNewMenuItem_13);
 		
 		JMenu mnNewMenu_2 = new JMenu("Korisnici");
