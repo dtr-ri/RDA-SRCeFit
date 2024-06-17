@@ -80,11 +80,11 @@ public class DLGUnosAktivnost extends JDialog {
 		textFieldNoviSport.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Sifra clanarine");
-		lblNewLabel_6.setBounds(10, 92, 64, 14);
+		lblNewLabel_6.setBounds(10, 92, 99, 14);
 		contentPanel.add(lblNewLabel_6);
 		
 		textFieldSifraClanarina = new JTextField();
-		textFieldSifraClanarina.setBounds(84, 89, 211, 20);
+		textFieldSifraClanarina.setBounds(119, 89, 211, 20);
 		contentPanel.add(textFieldSifraClanarina);
 		textFieldSifraClanarina.setColumns(10);
 		
@@ -93,7 +93,7 @@ public class DLGUnosAktivnost extends JDialog {
 		contentPanel.add(lblNewLabel_5);
 		
 		textFieldSifraTeren = new JTextField();
-		textFieldSifraTeren.setBounds(84, 117, 211, 20);
+		textFieldSifraTeren.setBounds(119, 117, 211, 20);
 		contentPanel.add(textFieldSifraTeren);
 		textFieldSifraTeren.setColumns(10);
 		

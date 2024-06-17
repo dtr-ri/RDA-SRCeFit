@@ -44,11 +44,11 @@ public class DLGPrikazSRC extends JDialog {
         contentPanel.setBackground(new Color(240, 255, 240));
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
         getContentPane().add(contentPanel, BorderLayout.CENTER);
-        contentPanel.setLayout(new BorderLayout(0, 0));
+        contentPanel.setLayout(null);
 
         JMenuBar menuBar = new JMenuBar();
+        menuBar.setBounds(0, 0, 595, 22);
 		menuBar.setBackground(SystemColor.menu);
-		menuBar.setBounds(0, 0, 595, 22);
 		contentPanel.add(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Kontrola");
@@ -247,7 +247,8 @@ public class DLGPrikazSRC extends JDialog {
 		menuBar.add(mnNewMenu_4);
 	
         JScrollPane scrollPane = new JScrollPane();
-        contentPanel.add(scrollPane, BorderLayout.CENTER);
+        scrollPane.setBounds(5, 22, 774, 501);
+        contentPanel.add(scrollPane);
 
         table = new JTable();
         table.setModel(new DefaultTableModel(
