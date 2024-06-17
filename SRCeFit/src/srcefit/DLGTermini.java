@@ -311,3 +311,4 @@ public class DLGTermini extends JDialog {
 		buttonPane.add(cancelButton);
 	}
 }
+	
