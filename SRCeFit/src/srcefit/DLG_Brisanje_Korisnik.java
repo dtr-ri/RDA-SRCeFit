@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.sql.DriverManager;
@@ -95,14 +96,13 @@ public class DLG_Brisanje_Korisnik extends JDialog {
 												
 								  conn.close();
 											
-
+						          JOptionPane.showMessageDialog(null, "Korisnika je obrisan iz baze", "Obavijest", JOptionPane.INFORMATION_MESSAGE);
 
 							} 
 							catch(Exception ex) {
-								/*
+								
+					            JOptionPane.showMessageDialog(null, "Korisnika nije moguće obrisati", "Upozorenje", JOptionPane.WARNING_MESSAGE);
 
-								JOptionPane.showMessageDialog(null, "nisu uneseni svi obavezni podaci","Greška",JOptionPane.WARNING_MESSAGE);
-								*/
 								return;
 							}
 							System.out.println(idKorisnik_clanski_broj);
