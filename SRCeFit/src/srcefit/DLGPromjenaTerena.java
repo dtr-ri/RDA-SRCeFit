@@ -431,7 +431,7 @@ public class DLGPromjenaTerena extends JDialog {
         String kapacitet = textFieldTerenKapacitet.getText();
 
         if (naziv.equals("") || namjena.equals("") || kapacitet.equals("")) {
-            JOptionPane.showMessageDialog(null, "Sva polja moraju biti popunjena", "Greška", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sva polja moraju biti popunjena", "Greska", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
