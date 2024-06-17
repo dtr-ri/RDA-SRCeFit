@@ -56,78 +56,78 @@ public class DLGPromjenaSRC extends JDialog {
         contentPanel.setLayout(null);
 
         JLabel lblNewLabel = new JLabel("Šifra SRC-a ");
-        lblNewLabel.setBounds(10, 11, 105, 14);
+        lblNewLabel.setBounds(10, 29, 105, 14);
         contentPanel.add(lblNewLabel);
 
         comboBoxCentarSifra = new JComboBox<>();
-        comboBoxCentarSifra.setBounds(88, 7, 211, 20);
+        comboBoxCentarSifra.setBounds(118, 26, 211, 20);
         contentPanel.add(comboBoxCentarSifra);
 
         JLabel lblNewLabel_4 = new JLabel("Naziv novog Sportsko-rekreacijskog centra");
-        lblNewLabel_4.setBounds(10, 46, 289, 14);
+        lblNewLabel_4.setBounds(10, 65, 289, 14);
         contentPanel.add(lblNewLabel_4);
 
         textFieldNoviSRC = new JTextField();
-        textFieldNoviSRC.setBounds(320, 43, 211, 20);
+        textFieldNoviSRC.setBounds(299, 62, 211, 20);
         contentPanel.add(textFieldNoviSRC);
         textFieldNoviSRC.setColumns(10);
 
         JLabel lblNewLabel_1 = new JLabel("Adresa");
-        lblNewLabel_1.setBounds(10, 82, 68, 14);
+        lblNewLabel_1.setBounds(10, 103, 68, 14);
         contentPanel.add(lblNewLabel_1);
 
         textFieldAdresa = new JTextField();
-        textFieldAdresa.setBounds(88, 79, 211, 20);
+        textFieldAdresa.setBounds(88, 100, 211, 20);
         contentPanel.add(textFieldAdresa);
         textFieldAdresa.setColumns(10);
 
         JLabel lblNewLabel_2 = new JLabel("Aktivnosti/sportovi u ponudi novog SRC-a");
-        lblNewLabel_2.setBounds(10, 191, 253, 14);
+        lblNewLabel_2.setBounds(10, 238, 253, 14);
         contentPanel.add(lblNewLabel_2);
 
         comboBoxAktivnosti = new JComboBox<>();
-        comboBoxAktivnosti.setBounds(248, 187, 176, 22);
+        comboBoxAktivnosti.setBounds(248, 234, 176, 22);
         contentPanel.add(comboBoxAktivnosti);
 
         JLabel lblNewLabel_3 = new JLabel("Kratak tektualni opis novog SRC-a");
-        lblNewLabel_3.setBounds(10, 240, 207, 14);
+        lblNewLabel_3.setBounds(10, 281, 207, 14);
         contentPanel.add(lblNewLabel_3);
 
         JLabel lblNewLabel_tel = new JLabel("Telefon");
-        lblNewLabel_tel.setBounds(10, 110, 46, 14);
+        lblNewLabel_tel.setBounds(10, 147, 46, 14);
         contentPanel.add(lblNewLabel_tel);
 
         textFieldTel = new JTextField();
-        textFieldTel.setBounds(88, 110, 211, 20);
+        textFieldTel.setBounds(88, 144, 211, 20);
         contentPanel.add(textFieldTel);
         textFieldTel.setColumns(10);
 
         JLabel lblNewLabel_email = new JLabel("Email");
-        lblNewLabel_email.setBounds(10, 148, 46, 14);
+        lblNewLabel_email.setBounds(10, 191, 46, 14);
         contentPanel.add(lblNewLabel_email);
 
         textFieldEmail = new JTextField();
-        textFieldEmail.setBounds(88, 145, 211, 20);
+        textFieldEmail.setBounds(88, 188, 211, 20);
         contentPanel.add(textFieldEmail);
         textFieldEmail.setColumns(10);
 
         JLabel lblNewLabel_datumUnosa = new JLabel("Datum unosa");
-        lblNewLabel_datumUnosa.setBounds(10, 301, 76, 14);
+        lblNewLabel_datumUnosa.setBounds(10, 328, 76, 14);
         contentPanel.add(lblNewLabel_datumUnosa);
 
         textFieldDatumUnosa = new JTextField();
-        textFieldDatumUnosa.setBounds(88, 298, 151, 20);
+        textFieldDatumUnosa.setBounds(90, 325, 151, 20);
         contentPanel.add(textFieldDatumUnosa);
         textFieldDatumUnosa.setColumns(10);
 
         textFieldOpisSRC = new JTextField();
-        textFieldOpisSRC.setBounds(10, 265, 521, 20);
+        textFieldOpisSRC.setBounds(232, 267, 348, 47);
         contentPanel.add(textFieldOpisSRC);
         textFieldOpisSRC.setColumns(10);
 
         JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(SystemColor.menu);
-		menuBar.setBounds(0, 0, 595, 22);
+		menuBar.setBounds(0, 0, 637, 22);
 		contentPanel.add(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Kontrola");
