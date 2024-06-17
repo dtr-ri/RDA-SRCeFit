@@ -96,7 +96,7 @@ public class DLG_Brisanje_Korisnik extends JDialog {
 												
 								  conn.close();
 											
-						          JOptionPane.showMessageDialog(null, "Korisnika je obrisan iz baze", "Obavijest", JOptionPane.INFORMATION_MESSAGE);
+						          JOptionPane.showMessageDialog(null, "Korisnik je obrisan iz baze", "Obavijest", JOptionPane.INFORMATION_MESSAGE);
 
 							} 
 							catch(Exception ex) {
