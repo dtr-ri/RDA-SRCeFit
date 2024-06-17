@@ -43,7 +43,6 @@ public class DLGIzmjenaTermina extends JDialog {
     }
 
     public DLGIzmjenaTermina() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Korisnik\\Downloads\\srcefit3.png"));
         setTitle("Izmjena Termina");
         setBounds(100, 100, 553, 373);
         getContentPane().setLayout(new BorderLayout());
@@ -192,8 +191,8 @@ public class DLGIzmjenaTermina extends JDialog {
             if (rs.next()) {
                 textFieldtermin_datum.setText(rs.getString("termin_datum"));
                 //JComboBox<String> comboBoxtermin_pocetak_sati = null; - brisati
-				comboBoxtermin_pocetak_sati.setSelectedItem(rs.getString("Početak sati"));
-                comboBoxtermin_trajanje_sati.setSelectedItem(rs.getString("TrajanjeSati"));
+				comboBoxtermin_pocetak_sati.setSelectedItem(rs.getString("termin_pocetak_sati"));
+                comboBoxtermin_trajanje_sati.setSelectedItem(rs.getString("termin_trajanje_sati"));
             }
 
             conn.close();
