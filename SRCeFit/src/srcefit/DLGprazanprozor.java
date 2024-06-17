@@ -117,20 +117,20 @@ public class DLGprazanprozor extends JDialog {
 		JMenuItem mntmNewMenuItem_10 = new JMenuItem("Obrisi aktivnost/sport");
 		mnNewMenu_7.add(mntmNewMenuItem_10);
 		
-		JMenu mnNewMenu_8 = new JMenu("Trener");
+		JMenu mnNewMenu_8 = new JMenu("Teren");
 		mnNewMenu_1.add(mnNewMenu_8);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Dodaj trenera");
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Dodaj teren");
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DLGUnosTrener dlg = new DLGUnosTrener();
 				dlg.setVisible(true);}});
 		mnNewMenu_8.add(mntmNewMenuItem_2);
 		
-		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Mijenjaj trenera");
+		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Mijenjaj teren");
 		mnNewMenu_8.add(mntmNewMenuItem_11);
 		
-		JMenuItem mntmNewMenuItem_12 = new JMenuItem("Obrisi trenera");
+		JMenuItem mntmNewMenuItem_12 = new JMenuItem("Obrisi teren");
 		mnNewMenu_8.add(mntmNewMenuItem_12);
 		
 		JMenu mnNewMenu_9 = new JMenu("Termin");
@@ -164,21 +164,67 @@ public class DLGprazanprozor extends JDialog {
 		JMenuItem mntmNewMenuItem_16 = new JMenuItem("Obrisi clanarinu");
 		mnNewMenu_10.add(mntmNewMenuItem_16);
 		
-		JMenu mnNewMenu_11 = new JMenu("Clanovi");
-		mnNewMenu_2.add(mnNewMenu_11);
+		JMenu mnKorisnik = new JMenu("Korisnici");
+		mnNewMenu_2.add(mnKorisnik);
 		
-		JMenuItem mntmNewMenuItem_17 = new JMenuItem("Dodaj novog clana");
-		mntmNewMenuItem_17.addActionListener(new ActionListener() {
+		JMenuItem mntmUnosKorisnika = new JMenuItem("Unesi novog korisnika");
+		mntmUnosKorisnika.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DLG_Unos_Korisnik dlg = new DLG_Unos_Korisnik();
 				dlg.setVisible(true);}});
-		mnNewMenu_11.add(mntmNewMenuItem_17);
+		mnKorisnik.add(mntmUnosKorisnika);
 		
-		JMenuItem mntmNewMenuItem_18 = new JMenuItem("Mijenjaj clana");
-		mnNewMenu_11.add(mntmNewMenuItem_18);
+		JMenuItem mntmPrikazKorisnik = new JMenuItem("Pikaži korisnike");
+		mntmPrikazKorisnik.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Prikaz_Korisnik dlg = new DLG_Prikaz_Korisnik();
+				dlg.setVisible(true);}});
+		mnKorisnik.add(mntmPrikazKorisnik);
 		
-		JMenuItem mntmNewMenuItem_19 = new JMenuItem("Obrisi clana");
-		mnNewMenu_11.add(mntmNewMenuItem_19);
+		JMenuItem mntmIzmjenaKorisnik = new JMenuItem("Izmijeni korisnika");
+		mntmIzmjenaKorisnik.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Izmjena_Korisnik dlg = new DLG_Izmjena_Korisnik();
+				dlg.setVisible(true);}});
+		mnKorisnik.add(mntmIzmjenaKorisnik);
+		
+		JMenuItem mntmBrisanjeKorisnik = new JMenuItem("Obriši korisnika");
+		mntmBrisanjeKorisnik.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Brisanje_Korisnik dlg = new DLG_Brisanje_Korisnik();
+				dlg.setVisible(true);}});
+		mnKorisnik.add(mntmBrisanjeKorisnik);
+		
+		JMenu mnAGR_KorisnikNaAktivnostiUTerminu = new JMenu("Zauzeće aktivnosti i termina");
+		mnNewMenu_2.add(mnAGR_KorisnikNaAktivnostiUTerminu);
+		
+		JMenuItem mntmUnosAGR_KorisnikNaAktivnostiUTerminu = new JMenuItem("Unesi novo zauzeće");
+		mntmUnosAGR_KorisnikNaAktivnostiUTerminu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Unos_AGR_KorisnikNaAktivnostiUTerminu dlg = new DLG_Unos_AGR_KorisnikNaAktivnostiUTerminu();
+				dlg.setVisible(true);}});
+		mnAGR_KorisnikNaAktivnostiUTerminu.add(mntmUnosAGR_KorisnikNaAktivnostiUTerminu);
+		
+		JMenuItem mntmPrikazAGR_KorisnikNaAktivnostiUTerminu = new JMenuItem("Pikaži zauzeća ");
+		mntmPrikazAGR_KorisnikNaAktivnostiUTerminu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Prikaz_AGR_KorisnikNaAktivnostiUTerminu dlg = new DLG_Prikaz_AGR_KorisnikNaAktivnostiUTerminu();
+				dlg.setVisible(true);}});
+		mnAGR_KorisnikNaAktivnostiUTerminu.add(mntmPrikazAGR_KorisnikNaAktivnostiUTerminu);
+		
+		JMenuItem mntmIzmjenaAGR_KorisnikNaAktivnostiUTerminu = new JMenuItem("Izmijeni zauzeće");
+		mntmIzmjenaAGR_KorisnikNaAktivnostiUTerminu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Izmjena_AGR_KorisnikNaAktivnostiUTerminu dlg = new DLG_Izmjena_AGR_KorisnikNaAktivnostiUTerminu();
+				dlg.setVisible(true);}});
+		mnAGR_KorisnikNaAktivnostiUTerminu.add(mntmIzmjenaAGR_KorisnikNaAktivnostiUTerminu);
+		
+		JMenuItem mntmBrisanjeAGR_KorisnikNaAktivnostiUTerminu = new JMenuItem("Obriši zauzeće");
+		mntmBrisanjeAGR_KorisnikNaAktivnostiUTerminu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLG_Brisanje_AGR_KorisnikNaAktivnostiUTerminu dlg = new DLG_Brisanje_AGR_KorisnikNaAktivnostiUTerminu();
+				dlg.setVisible(true);}});
+		mnAGR_KorisnikNaAktivnostiUTerminu.add(mntmBrisanjeAGR_KorisnikNaAktivnostiUTerminu);
 		
 		JMenu mnNewMenu_12 = new JMenu("Posebne pogodnosti");
 		mnNewMenu_2.add(mnNewMenu_12);
