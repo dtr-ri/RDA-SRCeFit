@@ -63,7 +63,7 @@ public class DLG_Unos_Aktivnost extends JDialog {
 			contentPanel.add(Nova_aktivnost_naziv);
 		}
 		{
-			JLabel Nova_aktivnost_teren = new JLabel("Nova kativnost koristi teren");
+			JLabel Nova_aktivnost_teren = new JLabel("Nova aktivnost koristi teren");
 			Nova_aktivnost_teren.setBounds(10, 66, 158, 13);
 			contentPanel.add(Nova_aktivnost_teren);
 		}
