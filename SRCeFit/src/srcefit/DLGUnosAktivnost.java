@@ -52,7 +52,7 @@ public class DLGUnosAktivnost extends JDialog {
 	 * Create the dialog.
 	 */
 	public DLGUnosAktivnost() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Korisnik\\Downloads\\srcefit3.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Korisnik\\Downloads\\srcefit3.png"));
 		setTitle("SRCeFIT");
 		setBounds(100, 100, 553, 373);
 		getContentPane().setLayout(new BorderLayout());
