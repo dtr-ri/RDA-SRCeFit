@@ -76,7 +76,7 @@ public class DLG_Unos_Korisnik extends JDialog {
 			contentPanel.add(Novi_korisnik_adresa);
 		}
 		{
-			JLabel Novi_korisnik_tel = new JLabel("Novi korisnik tel/mob");
+			JLabel Novi_korisnik_tel = new JLabel("Novi korisnik telefon/mob");
 			Novi_korisnik_tel.setBounds(10, 134, 122, 13);
 			contentPanel.add(Novi_korisnik_tel);
 		}

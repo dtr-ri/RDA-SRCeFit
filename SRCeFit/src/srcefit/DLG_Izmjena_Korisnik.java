@@ -58,7 +58,7 @@ public class DLG_Izmjena_Korisnik extends JDialog {
 		setTitle("SRCeFIT Izmjena postojećeg korisnika");
 		setBounds(100, 100, 611, 398);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(new Color(240, 255, 240));
+		contentPanel.setBackground(new Color(241, 255, 240));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
@@ -78,7 +78,7 @@ public class DLG_Izmjena_Korisnik extends JDialog {
 			contentPanel.add(Novi_korisnik_adresa);
 		}
 		{
-			JLabel Novi_korisnik_tel = new JLabel("Novi korisnik tel/mob");
+			JLabel Novi_korisnik_tel = new JLabel("Novi korisnik telefon/mob");
 			Novi_korisnik_tel.setBounds(10, 230, 122, 13);
 			contentPanel.add(Novi_korisnik_tel);
 		}
