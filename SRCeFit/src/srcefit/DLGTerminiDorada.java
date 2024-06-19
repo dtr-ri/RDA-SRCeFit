@@ -88,14 +88,14 @@ public class DLGTerminiDorada extends JDialog {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/dtrbovic?" +
 				                                   "user=dtrbovic&password=11");
-			String sql = "SELECT * FROM RDA_proj_Termin WHERE termin_pocetak_sati=18 AND termin_trajanje_sati=1";
+			String sql = "SELECT * FROM RDA_proj_Termin WHERE termin_pocetak_sati=18 AND termin_trajanje_sati=2";
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 		  String tekst = "";
 		  while (rs.next()) {
 			  tekst += "Redni broj: "+rs.getString("termin_redni_broj")+"\t";				
 			  tekst += "Početak sati: "+rs.getString("termin_pocetak_sati")+"\t";
-			  tekst += "Trajanje sati: "+rs.getString("termin_trajanje_sati")+"\t";
+			  tekst += "Trajanje sati: "+rs.getString("termin_trajanje_sati")+"\n";
 
 		  }	
 		  textAreaPregled.setText(tekst);
