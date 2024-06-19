@@ -54,8 +54,8 @@ public class DLGprazanprozor extends JDialog {
 		
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBackground(SystemColor.menu);
 		menuBar.setBounds(0, 0, 595, 22);
+		menuBar.setBackground(SystemColor.menu);
 		contentPanel.add(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Kontrola");
@@ -174,6 +174,14 @@ public class DLGprazanprozor extends JDialog {
 				DLGPrikazTermina dlg = new DLGPrikazTermina();
 				dlg.setVisible(true);}});
 		mnNewMenu_9.add(mntmNewMenuItem_3_1);
+		
+		JMenuItem mntmNewMenuItem_17 = new JMenuItem("Termin dorada");
+		mntmNewMenuItem_17.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGTerminiDorada dlg = new DLGTerminiDorada();
+				dlg.setVisible(true);}});
+		mnNewMenu_9.add(mntmNewMenuItem_17);
+		
 		mnNewMenu_9.add(mntmNewMenuItem_5);
 		
 		JMenuItem mntmNewMenuItem_13 = new JMenuItem("Obrisi termin");
