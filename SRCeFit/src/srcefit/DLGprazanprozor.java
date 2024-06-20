@@ -197,7 +197,14 @@ public class DLGprazanprozor extends JDialog {
 		JMenu mnNewMenu_10 = new JMenu("Clanarine");
 		mnNewMenu_2.add(mnNewMenu_10);
 		
-		JMenuItem mntmNewMenuItem_14 = new JMenuItem("Dodaj novu clanarinu");
+		JMenuItem mntmNewMenuItem_14 = new JMenuItem("Unesi novu clanarinu");
+		mntmNewMenuItem_14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DlgUnosClanarina dlg = new DlgUnosClanarina();
+				dlg.setVisible(true);
+			}
+		});
+
 		mnNewMenu_10.add(mntmNewMenuItem_14);
 		
 		JMenuItem mntmNewMenuItem_15 = new JMenuItem("Mijenjaj clanarinu");
@@ -294,13 +301,6 @@ public class DLGprazanprozor extends JDialog {
 		
 		JMenu mnNewMenu_11 = new JMenu("SRCeFIT Izvještaji");
 		mnNewMenu_5.add(mnNewMenu_11);
-		
-		JMenuItem mntmNewMenuItem_19 = new JMenuItem("Unos izvjestaja o korisnicima");
-		mntmNewMenuItem_19.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DLGUnosIzvjestajaOKorisnicima dlg = new DLGUnosIzvjestajaOKorisnicima();
-				dlg.setVisible(true);}});
-		mnNewMenu_11.add(mntmNewMenuItem_19);
 		
 		JMenu mnNewMenu_4 = new JMenu("Racunovodstvo");
 		menuBar.add(mnNewMenu_4);
