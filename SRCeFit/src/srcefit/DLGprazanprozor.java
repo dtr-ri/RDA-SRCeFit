@@ -292,6 +292,16 @@ public class DLGprazanprozor extends JDialog {
 		JMenu mnNewMenu_5 = new JMenu("Izvjestaji");
 		menuBar.add(mnNewMenu_5);
 		
+		JMenu mnNewMenu_11 = new JMenu("SRCeFIT Izvještaji");
+		mnNewMenu_5.add(mnNewMenu_11);
+		
+		JMenuItem mntmNewMenuItem_19 = new JMenuItem("Unos izvjestaja o korisnicima");
+		mntmNewMenuItem_19.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DLGUnosIzvjestajaOKorisnicima dlg = new DLGUnosIzvjestajaOKorisnicima();
+				dlg.setVisible(true);}});
+		mnNewMenu_11.add(mntmNewMenuItem_19);
+		
 		JMenu mnNewMenu_4 = new JMenu("Racunovodstvo");
 		menuBar.add(mnNewMenu_4);
 	}
