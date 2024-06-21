@@ -39,6 +39,7 @@ public class DlgUnosClanarina extends JDialog {
     public DlgUnosClanarina() {
         setBounds(100, 100, 450, 300);
         setBackground(new Color(255, 255, 255));
+        
         setTitle("SRCeFIT Unos članarina");
         getContentPane().setLayout(new BorderLayout());
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -94,27 +95,30 @@ public class DlgUnosClanarina extends JDialog {
                 }
 
                 try {
-                    int clanarinaSifra = Integer.parseInt(clanarinaSifraStr);
-
                     Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-                    try (Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/dtrbovic?user=dtrbovic&password=11");
-                         PreparedStatement stmt = conn.prepareStatement("INSERT INTO RDA_proj_Clanarina (clanarina_sifra, clanarina_naziv, clanarina_opis) VALUES (?, ?, ?)")) {
-                        stmt.setInt(1, clanarinaSifra);
-                        stmt.setString(2, clanarinaNaziv);
-                        stmt.setString(3, clanarinaOpis);
-                        stmt.executeUpdate();
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://ucka.veleri.hr/dtrbovic?user=dtrbovic&password=11");
+                    String sql = "INSERT INTO RDA_proj_Clanarina (clanarina_sifra, clanarina_naziv, clanarina_opis) VALUES (?, ?, ?)";
+                    PreparedStatement stmt = conn.prepareStatement(sql);
+                    stmt.setString(1, clanarinaSifraStr);
+                    stmt.setString(2, clanarinaNaziv);
+                    stmt.setString(3, clanarinaOpis);
+                    stmt.executeUpdate();
+                    
+                    conn.close();
 
-                        JOptionPane.showMessageDialog(null, "Članarina je uspješno dodana", "Obavijest", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Članarina je uspješno dodana", "Obavijest", JOptionPane.INFORMATION_MESSAGE);
 
-                        textFieldSifra.setText("");
-                        textFieldNaziv.setText("");
-                        textAreaOpis.setText("");
-                    }
+                    textFieldSifra.setText("");
+                    textFieldNaziv.setText("");
+                    textAreaOpis.setText("");
                 } catch (NumberFormatException nfe) {
                     JOptionPane.showMessageDialog(null, "Šifra mora biti cijeli broj", "Greška", JOptionPane.WARNING_MESSAGE);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Došlo je do greške prilikom dodavanja članarine: " + ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
                 }
+
+                // Ispisivanje unesenih podataka u konzolu
+                System.out.println(clanarinaSifraStr + " " + clanarinaNaziv + " " + clanarinaOpis);
             }
         });
         okButton.setActionCommand("OK");

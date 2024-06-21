@@ -16,7 +16,7 @@ public class CitanjeBaze_Clanarina {
 			  Connection conn = DriverManager.getConnection 
 					  ("jdbc:mysql://ucka.veleri.hr/dtrbovic?" +
 							  "user=dtrbovic&password=11");
-			  //rbr, pocetak, trajanje
+			  //sifra, naziv, opis
 			  String sql = "SELECT * FROM RDA_proj_Clanarina;";
 			  Statement stmt = conn.createStatement();
 			  ResultSet rs = stmt.executeQuery(sql);
