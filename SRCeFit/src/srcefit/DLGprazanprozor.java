@@ -182,7 +182,13 @@ public class DLGprazanprozor extends JDialog {
 				dlg.setVisible(true);}});
 		mnNewMenu_9.add(mntmNewMenuItem_17);
 		
-		mnNewMenu_9.add(mntmNewMenuItem_5);
+		JMenuItem mntmNewMenuItem_18 = new JMenuItem("Termin dorada 2.nacin");
+		mntmNewMenuItem_18.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DlgTerminiDoradaDrugiNacin dlg = new DlgTerminiDoradaDrugiNacin();
+				dlg.setVisible(true);}});
+		
+		mnNewMenu_9.add(mntmNewMenuItem_18);
 		
 		JMenuItem mntmNewMenuItem_13 = new JMenuItem("Obrisi termin");
 		mntmNewMenuItem_13.addActionListener(new ActionListener() {
